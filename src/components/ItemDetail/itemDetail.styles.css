@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+}
+
+.container-image{
+    display: flex;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    width: 50%;
+    height: 50%;
+}
+
+.image-product{
+    display: flex;
+    width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+      height: 100%; /* La imagen ocupará el 100% del alto del contenedor */
+      object-fit: cover;
+}
+
+.container-details{
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,27 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.rateContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  padding: 5px 0 5px 0;;
+}
+
+.rateNumber {
+  margin: 0 3px 0 3px;
+  font-weight: 500;
+  font-size: 24px;
+  color:forestgreen;
+  text-shadow: -1px -2px 8px rgba(0,0,0,0.6);
+}
+
+.starContainer{
+    display: flex;
+}
+.star {
+  margin: 0 2px 0 2px;
+  align-self: center;
+}

@@ -1,18 +1,14 @@
 import React from 'react'
+import './SearchInput.styles.css'
 import { FaSistrix } from "react-icons/fa";
 
 export default function SearchInput() {
   return (
            
-    <div className="control has-icons-left has-icons-right">
+    <div className="container-search-form">
     
-    <input className="input" type="search" placeholder="Buscar"/>
-    <span className="icon is-small is-right">
-       
-        <FaSistrix size={24} /> 
-        
-       
-    </span>
+      <input className="input" type="search" placeholder="Buscar"/>
+      <span className="container-icon-search"> <FaSistrix size={34} color='white' /> </span>
 
 </div>
   )

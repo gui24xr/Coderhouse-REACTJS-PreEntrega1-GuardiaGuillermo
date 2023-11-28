@@ -1,0 +1,9 @@
+.container-categories{
+    .container-title{
+        width: 80%;
+        padding: 10px 0 10px 0;
+        background-color: rgb(122, 53, 53);
+        display: flex;
+        justify-content: center;
+    }
+}

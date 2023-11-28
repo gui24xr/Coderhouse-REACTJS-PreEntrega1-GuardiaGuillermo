@@ -1,16 +1,17 @@
 import React from 'react'
-import {  FaCartArrowDown } from "react-icons/fa";
-import 'bulma/css/bulma.min.css'
+import './CartWidget.styles.css'
+import { CgShoppingCart } from "react-icons/cg";
+
 
 export default function CartWidget() {
 
 //Provisorio xq se que esto mas tarde vendra de la BD
 const cantItems = 10
   return (
-    <div className="container">
+    <div className="container-cartwidget">
     
-    <FaCartArrowDown size={24}/>
-      <p > {cantItems}  </p>
+    <CgShoppingCart className='icono' size={36} color='white'/>
+    <span className='cantItems'>{cantItems}</span>
          
   </div>
   )

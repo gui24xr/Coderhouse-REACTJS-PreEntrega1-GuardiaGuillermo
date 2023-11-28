@@ -1,0 +1,17 @@
+.container-login{
+    display: flex;
+    
+    flex-direction: row;
+    
+}
+.icono{
+    align-self: center;
+}
+.usernames{
+    color: white;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    margin: 0 10px 0 10px;
+    align-self: center;
+}
