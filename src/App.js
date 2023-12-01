@@ -16,8 +16,9 @@ function App() {
       <BrowserRouter>
         <HeaderContainer/>
         <Routes>
-        <Route path='/' element={ <ItemListContainer/>}/>
-        <Route path='/categories/:categories' element={ <ItemListContainer />}/>
+        <Route exact path='/' element={ <ItemListContainer/>}/>
+        <Route exact path='/categories/:categories' element={ <ItemListContainer />}/>
+        <Route exact path='/itemdetail/:productID' element={ <ItemDetailContainer/>}/>
         <Route path='*' element={<h1>NOT FOUND</h1>}/>
          
           

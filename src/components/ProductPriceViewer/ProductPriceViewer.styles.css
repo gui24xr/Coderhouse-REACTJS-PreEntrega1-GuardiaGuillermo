@@ -1,0 +1,44 @@
+
+.product-price-container {
+    /* font-size: 18px;
+     color: #fbb72c;
+     font-weight: 600; */
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     align-content: end;
+     padding: 20px 10px 5px 0;
+ }
+ 
+ .product-price-container small {
+     font-size: 10;
+     font-weight: 500;
+     color: rgb(197, 48, 252);
+     text-decoration: line-through;
+     
+ }
+ 
+ .product-price-value{
+     font-size: 26px;
+     color: #000000;
+     font-weight: 800;
+ }
+
+
+
+ .bannerStyle{
+    background-color: rgb(255, 187, 0);
+    display: flex;
+    flex-direction: column;
+
+
+ }
+
+ .bannerStyle small {
+    padding: 10px 10px 10px 10px;
+    font-size: 10;
+    font-weight:bolder;
+    color: rgb(0, 0, 0);
+    text-decoration: line-through;
+    
+}

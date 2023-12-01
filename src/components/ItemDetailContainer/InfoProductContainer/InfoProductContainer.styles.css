@@ -1,0 +1,7 @@
+.container-component{
+    
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    border: solid 1px black;
+}

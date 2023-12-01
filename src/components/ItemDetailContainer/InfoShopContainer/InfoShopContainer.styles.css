@@ -1,0 +1,5 @@
+.container-component{
+    width: 30%;
+    display: flex;
+    border: solid 1px black;
+}

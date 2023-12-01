@@ -9,31 +9,30 @@ import ProductCard from '../ProductCard/ProductCard'
 
 export default function ItemListContainer() {
 
-  const { categories } = useParams()
-  console.log('CCCCA: ', categories)
-  //categories = ['guantes','gorras','pantalones']
-  //Categories es un array con la lista de categorias que renderiza mi itemListContainer.. 
-  //SI categories es undefined renderizo listado entero, si no, uso la lista entera
-  const [products, setProducts] = useState(getProductList())
+  const {categories} = useParams()
+  //console.log('Parametro Ingresado: ', categories)
+
+  //Puedo recibir categorias sea por componente(Ejemplo cuando aplique filtros o por parametro. Segun el caso una de las 2 variables sera undefined)
+  const [products, setProducts] = useState(categories === undefined ? getProductList() : getProductsByCategory(categories))
   //console.log(getProductByCategories(['cascos','guantes']))
-  /*
+  
   useEffect(()=>{
 
     categories === undefined 
     ? setProducts(getProductList())
-    : setProducts(getProductsByCategory('gorras'))
-    console.log(categories)
-  },[categories])
-  */
+    : setProducts(getProductsByCategory(categories))
+    //console.log(categories)
+  },[])
+  
 
-  useEffect(()=>{console.log('PPPP: ',products)},[products])
+  
 
   return (
     
     
       <div className='grid-container'>
         
-      <button onClick={()=>{setProducts(getProductsByCategory('bolsos'))}}>ssssssssssssss</button>
+      
       {products.map((item) => (
         <ProductCard  productID={item.productID} /> 
       ))}

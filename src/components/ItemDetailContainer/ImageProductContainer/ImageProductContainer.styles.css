@@ -1,0 +1,16 @@
+.container-component{
+    
+    display: flex;
+    width: 30%;
+    border: solid 1px black;
+    overflow: hidden; 
+}
+
+
+ .container-component img {
+ 
+     
+     width: 80%;
+     height: 80%;
+     object-fit: cover;
+ }
