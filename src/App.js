@@ -16,10 +16,11 @@ function App() {
       <BrowserRouter>
         <HeaderContainer/>
         <Routes>
-        <Route exact path='/' element={ <ItemListContainer/>}/>
-        <Route exact path='/categories/:categories' element={ <ItemListContainer />}/>
-        <Route exact path='/itemdetail/:productID' element={ <ItemDetailContainer/>}/>
-        <Route path='*' element={<h1>NOT FOUND</h1>}/>
+          <Route path='/' element={ <ItemListContainer greeting={'Bienvenido'}/>}/>
+          <Route  path='categories/:categoryID' element={ <ItemListContainer />}/>
+          <Route path='itemdetail/:productID' element={ <ItemDetailContainer/>}/>
+        
+          <Route path='*' element={<h1>NOT FOUND</h1>}/>
          
           
          
@@ -32,10 +33,5 @@ function App() {
 
 export default App;
 
-//
-//<Route exact path='/' element={ <ItemDetailContainer/>}/>
-// <Route path='/product' element={ <ProductCard product={getProductByID(3)}/>}/>
-
-/*
-<Route path='/' element={<ItemDetailContainer productID={154}/>}/>
-*/
+//<Route exact path='categories/:categories' element={ <ItemListContainer />}/>
+//<Route exact path='itemdetail/:productID' element={ <ItemDetailContainer/>}/>

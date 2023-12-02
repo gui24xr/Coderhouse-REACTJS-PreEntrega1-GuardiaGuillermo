@@ -21,7 +21,7 @@ const [product,setProduct] = useState(getProductByID(productID))
 
   return (
     <div className='container-itemdetail'>
-        <ImageProductContainer productImage={product.imageSrc}/>
+        <ImageProductContainer product={product}/>
         <InfoProductContainer product={product}/>
         
 

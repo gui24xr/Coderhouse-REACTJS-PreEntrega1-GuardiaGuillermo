@@ -2,10 +2,17 @@ import React from 'react'
 import './ImageProductContainer.styles.css'
 
 
-export default function ImageProductContainer({productImage}) {
+export default function ImageProductContainer({product}) {
   return (
     <div className = "container-component">
-      <img src={productImage} alt="" />
+      <div className = "container-product-img">
+        <img src={product.imageSrc} alt="" />
+        
+      </div>
+      <div className = "container-brand-img">
+        
+        <img src={product.brandImg} alt="" />
+      </div>
     </div>
   )
 }

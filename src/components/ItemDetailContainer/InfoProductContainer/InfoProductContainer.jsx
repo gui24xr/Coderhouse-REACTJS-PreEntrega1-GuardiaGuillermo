@@ -7,6 +7,7 @@ import StockVisor from '../../StockVisor/StockVisor'
 export default function InfoProductContainer({product}) {
   return (
     <div className = "container-component">
+        
         <p  className="product-title">{product.productName}</p>
         <RateVisor rateNumber={product.rate} />
 

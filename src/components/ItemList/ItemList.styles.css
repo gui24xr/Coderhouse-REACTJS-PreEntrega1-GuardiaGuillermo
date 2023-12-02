@@ -1,0 +1,26 @@
+.itemlist-container{
+    /*estilo grid*/
+    width: 100%;
+    padding: 30px 30px 30px 30px;
+    background-color: rgb(85, 78, 78);
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));/* Dos columnas de igual tamaño */
+    /* Tres filas de 100px de altura cada una */
+    gap: 10px; /* Espacio entre las celdas */
+    justify-items: center;
+}
+
+
+.grid-container {
+
+    width: 95%;
+    padding: 30px 30px 30px 30px;
+    background-color: rgb(85, 78, 78);
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));/* Dos columnas de igual tamaño */
+    /* Tres filas de 100px de altura cada una */
+    gap: 10px; /* Espacio entre las celdas */
+    justify-items: center;
+  }

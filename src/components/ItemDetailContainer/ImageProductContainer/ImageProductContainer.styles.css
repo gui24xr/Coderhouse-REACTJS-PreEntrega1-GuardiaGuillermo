@@ -1,16 +1,26 @@
 .container-component{
     
-    display: flex;
+    
     width: 30%;
     border: solid 1px black;
     overflow: hidden; 
+    display: flex;
+    flex-direction: column;
 }
 
 
- .container-component img {
+ .container-product-img {
  
      
-     width: 80%;
+     
      height: 80%;
      object-fit: cover;
  }
+
+ .container-product-brand{
+ 
+     
+    
+    height: 20%;
+    object-fit: cover;
+}

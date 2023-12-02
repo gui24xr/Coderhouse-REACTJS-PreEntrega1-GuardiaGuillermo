@@ -56,13 +56,19 @@ const getUrlImgBrand = (brand) => {
 };
 
 const getProductList = ()=>{
-  //Por ahora devuelve la lista de productos entera pero a futuro tmb devolver on la informacion de su marca, comentarios,etc
-  //Dado que por cada articulo quiero ejecutar getProctByID para que me de los datos
-  //La differencia entre esta lista y DATA_Product es que esta lista devuelve productos con los datos ya cruzados.
+  //La differencia entre esta lista y DATA_PRODUCT es que esta lista devuelve productos con los datos ya cruzados.
   const productList = []
   DATA_PRODUCTS.forEach( item => productList.push(getProductByID(item.productID)))
+
+  //Ya tengo la lista para retornado, con marcas y con todos los datos cruzados.
  
-  return productList
+  //return productList
+
+  return new Promise((resolve) => {
+    setTimeout(()=>{
+     
+      resolve(productList)},500)
+  })
 }
 
 const getProductByCategories = (categoriesArray) =>{
@@ -89,11 +95,18 @@ const getProductsByCategory = (category) =>{
   DATA_PRODUCTS.forEach(item => {
     //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
     //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
+    console.log('valor parametro: ', category, 'valor item.category: ', item.category)
     if ( item.category === category )productsOfCategory.push(getProductByID(item.productID))
   })
 
-  console.log(productsOfCategory)
-    return productsOfCategory
+  console.log('ppp: ',productsOfCategory)
+    //return productsOfCategory
+    return new Promise((resolve)=>{
+      setTimeout(()=>{
+        console.log('se ejecuto x categorias',productsOfCategory)
+        resolve(productsOfCategory)
+      },500)
+    })
 }
  
 export {

@@ -12,12 +12,10 @@ export default function CategoriesContainer() {
     return (
     <nav className='container-categories'>
    
-    <NavLink to={'/categories/bolsos'}>Bolso</NavLink>
-    <NavLink to={'/categories/gorras'}>Gorras</NavLink>
     {categoriesList.map((item) => (
       
         <NavLink 
-        className="button is-black"  to={'/categories/'+ item +""}>{item.toUpperCase()}</NavLink>
+        className="button is-black"  to={'categories/'+ item +""}>{item.toUpperCase()}</NavLink>
         
       ))}
     </nav>

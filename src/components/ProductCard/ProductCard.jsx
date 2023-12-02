@@ -15,6 +15,10 @@ function ProductCard({ productID }) {
    
   const [product, setProduct] = useState(getProductByID(productID));
 
+  useEffect(()=>{
+    
+  },[])
+
   return (
     <div className="product-card">
       <div className="product-tumb">
@@ -23,7 +27,7 @@ function ProductCard({ productID }) {
       <div className="product-details">
         <h4>
            <NavLink 
-           to={'./itemdetail/'+product.productID}
+           to={'../itemdetail/'+product.productID}
            className="product-title">{product.productName}</NavLink>
         </h4>
 
