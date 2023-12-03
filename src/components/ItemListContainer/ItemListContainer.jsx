@@ -18,16 +18,13 @@ export default function ItemListContainer({ greeting }) {
   useEffect(() => {
     
     const asyncFunc = categoryID  ? getProductsByCategory : getProductList
-    console.log('C: ', categoryID)
-    console.log('C: ', asyncFunc)
-    
-
+   
 
     asyncFunc(categoryID)
       .then(response => {
                           setProducts(response) 
-                          console.log('response: ', response)
-                          console.log('products: ', products)
+                          //console.log('response: ', response)
+                          //console.log('products: ', products)
                         
                         })
       .catch(err=>console.log(err))

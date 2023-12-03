@@ -32,7 +32,13 @@ const getProductByID = (productID) => {
   myProduct.brandImg = DATA_BRANDS[brandPosition].brandImg
   //Calculo stock segun el tipo de producto
   //console.log(myProduct)
-  return myProduct;
+  //return myProduct;
+
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve(myProduct)
+    },0)
+  })
 
 
 };
@@ -58,7 +64,7 @@ const getUrlImgBrand = (brand) => {
 const getProductList = ()=>{
   //La differencia entre esta lista y DATA_PRODUCT es que esta lista devuelve productos con los datos ya cruzados.
   const productList = []
-  DATA_PRODUCTS.forEach( item => productList.push(getProductByID(item.productID)))
+  DATA_PRODUCTS.forEach( item => productList.push(item))
 
   //Ya tengo la lista para retornado, con marcas y con todos los datos cruzados.
  
@@ -79,7 +85,7 @@ const getProductByCategories = (categoriesArray) =>{
   DATA_PRODUCTS.forEach(item => {
     //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
     //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
-    if ( categoriesArray.indexOf(item.category)>=0 ) productsFilterByCategories.push(getProductByID(item.productID))
+    if ( categoriesArray.indexOf(item.category)>=0 ) productsFilterByCategories.push(item)
   })
    
     return productsFilterByCategories
@@ -96,9 +102,10 @@ const getProductsByCategory = (category) =>{
     //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
     //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
     console.log('valor parametro: ', category, 'valor item.category: ', item.category)
-    if ( item.category === category )productsOfCategory.push(getProductByID(item.productID))
+    if ( item.category === category )productsOfCategory.push(item)
   })
 
+  
   console.log('ppp: ',productsOfCategory)
     //return productsOfCategory
     return new Promise((resolve)=>{

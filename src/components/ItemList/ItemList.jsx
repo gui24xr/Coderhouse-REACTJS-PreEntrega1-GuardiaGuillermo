@@ -3,9 +3,10 @@ import './ItemList.styles.css'
 import ProductCard from '../ProductCard/ProductCard';
 
 const ItemList = ({products}) => {
-    return (
+
+      return (
         <div className='itemlist-container'>
-           {products.map(product => <ProductCard key={product.productID} productID={product.productID}/>)}
+           {products.map(product => <ProductCard key={product.productID} product={product}/>)}
         </div>
     );
 }

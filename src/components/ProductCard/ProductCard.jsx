@@ -9,15 +9,13 @@ import ProductPriceViewer from "../ProductPriceViewer/ProductPriceViewer";
 //import 'bulma/css/bulma.min.css'
 
 
-function ProductCard({ productID }) {
+function ProductCard({ product }) {
 
 //Puedo recibir parametros ya sea por componente o por url
    
-  const [product, setProduct] = useState(getProductByID(productID));
 
-  useEffect(()=>{
-    
-  },[])
+
+  
 
   return (
     <div className="product-card">

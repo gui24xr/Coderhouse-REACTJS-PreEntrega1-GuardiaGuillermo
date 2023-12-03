@@ -1,22 +1,8 @@
-.container{
-    display: flex;
-}
+@import "tailwindcss/base";
 
-.container-image{
-    display: flex;
-    border: 1px solid #ccc;
-    overflow: hidden;
-    width: 50%;
-    height: 50%;
-}
+@import "tailwindcss/components";
 
-.image-product{
-    display: flex;
-    width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
-      height: 100%; /* La imagen ocupará el 100% del alto del contenedor */
-      object-fit: cover;
-}
+@import "tailwindcss/utilities";
+.itemdetail-container{
 
-.container-details{
-    border: 1px solid #ccc;
 }
