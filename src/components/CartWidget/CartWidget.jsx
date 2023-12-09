@@ -10,7 +10,7 @@ const cantItems = 10
   return (
     <div className="container-cartwidget">
     
-    <CgShoppingCart className='icono' size={36} color='white'/>
+    <CgShoppingCart className='icono' size={24} color='white'/>
     <span className='cantItems'>{cantItems}</span>
          
   </div>

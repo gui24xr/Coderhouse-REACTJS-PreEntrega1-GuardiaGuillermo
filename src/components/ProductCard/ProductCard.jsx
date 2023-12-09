@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./ProductCard.styles.css";
 import RateVisor from "../RateVisor/RateVisor";
 import { PiHeartStraightLight } from "react-icons/pi";
 import { BiCartAdd } from "react-icons/bi";
@@ -18,34 +17,36 @@ function ProductCard({ product }) {
   
 
   return (
-    <div className="product-card">
-      <div className="product-tumb">
-        <img src={product.imageSrc} alt="" />
+    <div className="p-4 text-center w-full shadow-lg mx-auto bg-white rounded-lg">
+      <div className="flex items-center">
+        <img className='w-80 h-30 object-contain 'src={product.imageSrc} alt="" />
       </div>
-      <div className="product-details">
-        <h4>
-           <NavLink 
-           to={'../itemdetail/'+product.productID}
-           className="product-title">{product.productName}</NavLink>
-        </h4>
 
+      <div className="p-4 h-24 overflow-hidden text-sm font-semibold text-gray-900 hover:text-amber-300">
+        <NavLink to={'../itemdetail/'+product.productID}>
+                
+                {product.productName}
+        </NavLink>
+      </div>
+      <div className="my-2">
         <RateVisor rateNumber={product.rate} />
+      </div>
+      <div >
         <ProductPriceViewer productPrice={product.productPrice}/>
-    
-
-        <div className="product-links-container">
-          <PiHeartStraightLight
-            size={28}
+      </div>
+      <div className=" my-4 p 1 w-full flex flex-row justify-between">
+        <PiHeartStraightLight
+            size={36}
             color={"#4169e1"}
-            className="product-links-icon"
+            className="hover:text-amber-300"
           />
           <BiCartAdd
-            size={30}
+            size={38}
             color={"#4169e1"}
-            className="product-links-icon"
+          
           />
         </div>
-      </div>
+    
     </div>
   );
 }

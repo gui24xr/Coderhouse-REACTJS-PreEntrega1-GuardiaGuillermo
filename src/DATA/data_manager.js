@@ -101,16 +101,16 @@ const getProductsByCategory = (category) =>{
   DATA_PRODUCTS.forEach(item => {
     //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
     //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
-    console.log('valor parametro: ', category, 'valor item.category: ', item.category)
+   
     if ( item.category === category )productsOfCategory.push(item)
   })
 
   
-  console.log('ppp: ',productsOfCategory)
+  //console.log('ppp: ',productsOfCategory)
     //return productsOfCategory
     return new Promise((resolve)=>{
       setTimeout(()=>{
-        console.log('se ejecuto x categorias',productsOfCategory)
+       
         resolve(productsOfCategory)
       },500)
     })

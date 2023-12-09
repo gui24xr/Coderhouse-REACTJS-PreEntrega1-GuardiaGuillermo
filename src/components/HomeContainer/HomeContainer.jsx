@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "bulma/css/bulma.min.css";
-import "./itemListContainer.styles.css";
+
 import ItemList from "../ItemList/ItemList";
 import {
   getProductList,
@@ -13,22 +13,19 @@ import useUnplash  from "../../hooks/useUnplash";
 import UsersFeedBackViewer from "../UsersFeedBackViewer/UsersFeedBackViewer";
 import CarrouselContainer from "../CarrouselContainer/CarrouselContainer";
 
-export default function ItemListContainer() {
+export default function HomeContainer() {
   
-  const [products, setProducts] = useState([]);
-  const {categoryID} = useParams()
-  //const {data} = useUnplash('helmet')
-  
-  useEffect(() => {
-
-   
+  const [productsOffers, setProductsOffers] = useState([]);
     
-    const asyncFunc = categoryID !== 'todos' ? getProductsByCategory : getProductList
+  useEffect(() => {
+  
+    
+  
    
 
-    asyncFunc(categoryID)
+    getProductList() // tiene que ser de ofertas para el carrusel
       .then(response => {
-                          setProducts(response) 
+                          setProductsOffers(response) 
                           //console.log('response: ', response)
                           //console.log('products: ', products)
                         
@@ -38,11 +35,11 @@ export default function ItemListContainer() {
    
       //console.log(data)
 
-  }, [categoryID]);
+  });
 
   return (
     <div className="flex flex-row">
-    <ItemList products ={products}/>
+    <CarrouselContainer productList={productsOffers}/>
     
 
 
@@ -51,6 +48,3 @@ export default function ItemListContainer() {
     </div>
   );
 }
-
-//<ItemList products ={products}/>
-//<UsersFeedBackViewer />
