@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer';
 function App() {
 
   return (
-    <div class="mx-auto md:p-4 lg:p-6 xl:p-8">
+    <div className="mx-auto md:p-4 lg:p-6 xl:p-8">
       
       <BrowserRouter>
         <HeaderContainer/>

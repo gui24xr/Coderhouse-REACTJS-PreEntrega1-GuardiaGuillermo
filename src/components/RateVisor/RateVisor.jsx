@@ -28,7 +28,7 @@ export default function RateVisor({ rateNumber }) {
       <span className="mx-1 text-xl text-emerald-500 ">{rateNumber}</span>
       <div className="flex">
         {starsArray.map((item) => (
-          <>{item}</>
+          <div className='flex center' key={item.index}>{item}</div>
         ))}
       </div>
     </div>

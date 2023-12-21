@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./BannerContainer.styles.css";
 import LoginNavBar from "../LoginNavBar/LoginNavBar";
 import NavBar from "../NavBar/NavBar";
 
@@ -37,7 +36,7 @@ const BannerContainer = () => {
 
   useEffect(()=>{
     getPicForBanner()
-  })
+  },[])
 
   return (
     <div className="w-full bg-cover bg-center flex flex-col content-between" style={{height: "14rem",backgroundImage: picForBanner, }}>

@@ -21,7 +21,7 @@ const CarrouselBrands = () => {
         })
 
         setBrandsList(brandsComponentsList)
-        console.log('hhh', brandsComponentsList)
+        //console.log('hhh', brandsComponentsList)
     },[])
 
     return (

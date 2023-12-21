@@ -26,7 +26,7 @@ const CarrouselBranchs = () => {
     return (
         <CarrouselContainer
         titleComponent={
-          <div className="px-5 w-6/6 h-6 flex flex-row bg-blue-200 font-semibold text-md text-white shadow-md">
+          <div className="px-5 w-5/5 h-6 flex flex-row bg-blue-200 font-semibold text-md text-white shadow-md">
             NUESTRAS SUCURSALES
           </div>
         }

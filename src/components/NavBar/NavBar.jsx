@@ -19,23 +19,25 @@ export default function NavBar() {
    const categoriesList = getCategoriesFromProductList();
 
   return (
-    <nav className=" px-2 bg-black shadow-md rounded-b-lg">
+    <ul className="flex flex-row px-2 bg-black shadow-md rounded-b-lg">
                
 
-            
-              <NavLink className="mx-1 px-4 bg-blue-600 text-lg font-semibold text-white rounded-bl-lg hover:text-amber-300" to={"categories/todos"}>
-                TODOS LOS PRODUCTOS
-              </NavLink>
-            
+              <li key={'todos'} className='bg-black shadow-md rounded-b-lg'>
+                <NavLink className="mx-1 px-4 bg-blue-600 text-lg font-semibold text-white rounded-bl-lg hover:text-amber-300" to={"categories/todos"}>
+                  TODOS LOS PRODUCTOS
+                </NavLink>
+              </li>
               {categoriesList.map((item) => (
-              <NavLink className="mx-1 px-4 bg-blue-600 text-lg font-semibold text-white rounded-bl-lg hover:text-amber-300" to={"categories/" + item + ""}>
-              {item.toUpperCase()}
-              </NavLink>
+                <li key={item} className='bg-black shadow-md rounded-b-lg'>
+                  <NavLink className="mx-1 px-4 bg-blue-600 text-lg font-semibold text-white rounded-bl-lg hover:text-amber-300" to={"categories/" + item + ""}>
+                  {item.toUpperCase()}
+                  </NavLink>
+                </li>
           ))}
            
           
        
-      </nav>
+      </ul>
   );
 }
 

@@ -10,10 +10,6 @@ export default function CarrouselContainer({ titleComponent,itemList,containerCl
   const [endFrame,setEndFrame] = useState(CANTIDADMOSTRADA)
   const [ItemsMostrados,setItemsMostrados]=useState(itemList.slice(initialFrame,endFrame))
 
-  useEffect(()=>{
-    setItemsMostrados(itemList.slice(initialFrame,endFrame))
-  },)
-
   const moveForward = () => {
     if(endFrame < (itemList.length-1)){
       setInitialFrame(prevState => prevState+ 1)
@@ -41,13 +37,13 @@ export default function CarrouselContainer({ titleComponent,itemList,containerCl
       
 
       <div className="w-6/6 h-40 flex flex-row">
-        <div classname="w-1/6 flex flex-col justify-center self-center">
+        <div className="w-1/6 flex flex-col justify-center self-center">
           <FaRegArrowAltCircleLeft size={40} onClick={()=>moveBack()} />
         </div>
         <div className ={ gridClassName }>
           {ItemsMostrados.map(item => item) }
         </div>
-        <div classname="w-1/6">
+        <div className="w-1/6 flex flex-col justify-center self-center">
           <FaRegArrowAltCircleRight size={40} onClick={()=>moveForward()}/>
         </div>
       </div>

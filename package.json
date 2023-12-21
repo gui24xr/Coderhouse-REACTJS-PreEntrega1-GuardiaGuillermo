@@ -9,6 +9,7 @@
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.1",
     "bulma": "^0.9.4",
+    "firebase": "^10.7.1",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "react": "^18.2.0",

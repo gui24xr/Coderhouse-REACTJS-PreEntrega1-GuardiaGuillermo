@@ -18,7 +18,7 @@ export const useApi = (APIurl) => {
     */
         axios.get(APIurl)
             .then(response => {
-                console.log('YYYY: ',response)
+                //console.log('YYYY: ',response)
                 setData(response)
                 setLoading(false)
             })
