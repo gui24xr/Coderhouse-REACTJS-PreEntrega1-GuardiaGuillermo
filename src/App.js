@@ -4,9 +4,7 @@ import HeaderContainer from './components/HeaderContainer/HeaderContainer'
 import HomeContainer from './components/HomeContainer/HomeContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import ProductCard from './components/ProductCard/ProductCard';
-
-import { getProductByID } from './DATA/product_data';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -19,14 +17,12 @@ function App() {
         <Routes>
           <Route path='/' element={ <HomeContainer />}/>
           <Route  path='categories/:categoryID' element={ <ItemListContainer />}/>
+          <Route  path='brands/:brandID' element={ <ItemListContainer />}/>
           <Route path='itemdetail/:productID' element={ <ItemDetailContainer/>}/>
         
           <Route path='*' element={<h1>NOT FOUND</h1>}/>
-         
-          
-         
-         
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

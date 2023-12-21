@@ -6,7 +6,7 @@ export default function RateVisor({ rateNumber }) {
   const STARCOLOR = '#4169e1'
   const INACTIVESTARS = '#708090';
   const rateNumberRounded = Math.round(rateNumber);
-  console.log(rateNumberRounded);
+  //console.log(rateNumberRounded);
 
   const cantMaxStars = 5;
   const starsActiveArray = Array.from(

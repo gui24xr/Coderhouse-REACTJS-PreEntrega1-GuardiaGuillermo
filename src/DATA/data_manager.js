@@ -1,5 +1,6 @@
 import DATA_PRODUCTS from "./product_data";
 import DATA_BRANDS from "./brand_data";
+import DATA_BRANCHS from "./branchs_data";
 
 //FUNCIONES RELACIONADAS A LA GESTION DE LOS DATOS.-----------------------------------
 
@@ -93,6 +94,22 @@ const getProductByCategories = (categoriesArray) =>{
 
 }
 
+const getOfferList = () => {
+  //Devuelve un array de productos de oferta al azar del array de todos lso produdctos 
+  const productsInOffer = [] 
+  //Esto hay que modificarlo asique pedire 'cant' de productos 
+  for (let i=0; i < 15; i++){
+    productsInOffer.push(DATA_PRODUCTS[i])
+  }
+
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve(productsInOffer)
+    },500)
+  })
+
+
+}
 
 const getProductsByCategory = (category) =>{
   //Devuelve los productos del la categoria pasada por parametro
@@ -116,6 +133,20 @@ const getProductsByCategory = (category) =>{
     })
 }
  
+
+const getBrandsList = () =>{
+  return DATA_BRANDS
+}
+
+const getProductsByBrand = (brand) => {
+
+  return DATA_PRODUCTS.filter( item => item.brand === brand)
+}
+
+const getBranchsList = () => {
+  return DATA_BRANCHS
+}
+
 export {
   getProductList,
   getCategoriesFromProductList,
@@ -124,4 +155,8 @@ export {
   getProductsByCategory,
   getDiscountPrice,
   getUrlImgBrand,
+  getOfferList,
+  getBrandsList,
+  getProductsByBrand,
+  getBranchsList,
 };

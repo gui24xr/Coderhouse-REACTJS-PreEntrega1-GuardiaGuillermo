@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import RateVisor from "../RateVisor/RateVisor";
+import RateVisor from "../../RateVisor/RateVisor";
 import { PiHeartStraightLight } from "react-icons/pi";
 import { BiCartAdd } from "react-icons/bi";
-import { getProductByID } from "../../DATA/data_manager";
+import { getProductByID } from "../../../DATA/data_manager";
 import { NavLink } from "react-router-dom";
-import ProductPriceViewer from "../ProductPriceViewer/ProductPriceViewer";
+import ProductPriceViewer from "../../ProductPriceViewer/ProductPriceViewer";
 //import 'bulma/css/bulma.min.css'
 
 
