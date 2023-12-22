@@ -2,12 +2,6 @@ import React from "react";
 import '../NavBar/NavBar.styles.css'
 import { NavLink } from "react-router-dom";
 
-//Componentes
-import SearchInput from "./SearchInput.jsx/SearchInput";
-import CartWidget from "../CartWidget/CartWidget";
-import LoginWidget from "../LoginWIdget/LoginWidget";
-import CategoriesContainer from "../CategoriesContainer/CategoriesContainer";
-
 
 import { getCategoriesFromProductList } from "../../DATA/data_manager";
 
