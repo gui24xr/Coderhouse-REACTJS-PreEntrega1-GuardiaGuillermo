@@ -10,8 +10,16 @@ const getDatoAleatoriaArray = (unArray) => {
   const generarValorAleatorio = (min, max) =>
     Math.floor(Math.random() * (max - min + 1) + min);
 
+  function quitarCaracterDolar(cadena) {
+      // Reemplaza todas las ocurrencias del carácter "$" con una cadena vacía.
+      var cadenaSinDolar = cadena.replace(/\$/g, '');
+    
+      return cadenaSinDolar;
+    }
+
 
 export {
     getDatoAleatoriaArray,
-    generarValorAleatorio
+    generarValorAleatorio,
+    quitarCaracterDolar
 }

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-
+import { NavLink } from "react-router-dom";
 import RateVisor from "../RateVisor/RateVisor";
 import ProductPriceViewer from "../ProductPriceViewer/ProductPriceViewer";
 import StockVisor from "../StockVisor/StockVisor";
@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { ItemDetailContext } from "../../context/ItemDetailContext"
 import { CartContext } from "../../context/CartContext";
 import { getStockProduct } from "../../DATA/data_manager";
+
 
 
 const ItemDetail = ({ product }) => {
@@ -90,16 +91,21 @@ const comprarProducto = () =>{
                 <ItemCountSelector/>
                 
                 <div className="flex flex-col mx-2 mb-4">
-                  <div className="w-2/2 px-2">
-                      <button className="my-4 w-full bg-sky-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
-                      onClick={()=>contextoItemDetail.selectedQuantity>=1 && contextoCarrito.addItem(contextoItemDetail.selectedProductID,contextoItemDetail.selectedQuantity,contextoItemDetail.selectedSize)}
-                      >Ir al carrito</button>
-                  </div>
-                  <div className="w-2/2 px-2">
-                      <button className="w-full bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"
-                      onClick={()=>contextoCarrito.viewCart()}
-                      >Comprar Ahora</button>
-                  </div>
+               
+                      <NavLink 
+                      to={'/cart'}
+                      className="my-4 w-full bg-sky-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
+                      >Ir al carrito
+                  
+                      </NavLink>
+
+
+             
+                 
+                      <NavLink className="w-full bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"
+                     
+                      >Comprar Ahora</NavLink>
+                  
             </div>
             </div>
         </div>

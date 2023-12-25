@@ -7,6 +7,7 @@ import HomeContainer from './components/HomeContainer/HomeContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import BranchInfoContainer from './components/BranchInfoContainer/BranchInfoContainer';
+import CartContainer from './components/CartContainer/CartContainer';
 import Footer from './components/Footer/Footer';
 
 
@@ -25,7 +26,7 @@ function App() {
         
             <Route path='itemdetail/:productID' element={ <ItemDetailContainer/>}/>
             <Route path='branchinfo/:branchID' element={ <BranchInfoContainer/>}/>
-            
+            <Route path='/cart' element={ <CartContainer/>}/>
           
             <Route path='*' element={<h1>NOT FOUND</h1>}/>
           </Routes>

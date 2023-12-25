@@ -6,7 +6,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/agv-pista-gp-rr-iridium-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/AGV/PISTA%20GP%20RR/pist%20iridium-200x200.jpg",
-    productPrice: "$1,899.00",
+    productPrice: "$1899.00",
     description: "Descripcion de AGV Pista GP RR Iridium Helmet",
     subcategory: "full face",
     brand: "agv",
@@ -24,7 +24,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/agv-pista-gp-rr-matt-carbon-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/AGV/PISTA%20GP%20RR/pista-gprr-matt-carbon-200x200.jpg",
-    productPrice: "$1,799.00",
+    productPrice: "$1799.00",
     description: "Descripcion de AGV Pista GP RR Matt Carbon Helmet",
     subcategory: "full face",
     brand: "agv",
@@ -42,7 +42,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/agv-pista-gp-rr-glossy-carbon-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/AGV/PISTA%20GP%20RR/PISTA%20GP%20RR%20GLOSSY%20CARBON-200x200.jpg",
-    productPrice: "$1,699.00",
+    productPrice: "$1699.00",
     description: "Descripcion de AGV Pista GP RR Glossy Carbon Helmet",
     subcategory: "full face",
     brand: "agv",
@@ -60,7 +60,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-motegi-4-tc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/SHOEI-X-SPR-Pro-MOTEGI-4-TC-1-HELMET-200x200.png",
-    productPrice: "$1,649.90",
+    productPrice: "$1649.90",
     description: "Descripcion de Shoei X-SPR Pro Motegi 4 TC1 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -78,7 +78,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-marquez7-tc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/SHOEI%20DECEMBER%202022/shoei-x-spr-pro-marquez7-tc-1-helmet-200x200.jpeg",
-    productPrice: "$1,649.90",
+    productPrice: "$1649.90",
     description: "Descripcion de Shoei X-SPR Pro Marquez7 TC1 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -96,7 +96,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-marquez-dazzle-tc10-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/shoei-xspr-pro-marquez-dazzle-tc10-helmet-200x200.png",
-    productPrice: "$1,649.90",
+    productPrice: "$1649.90",
     description: "Descripcion de Shoei X-SPR Pro Marquez Dazzle TC10 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -114,7 +114,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-marquez-barcelona-tc10-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/SHOEI-XSPR-PRO-MARQUEZ-BARCELONA-TC10-HELMET-200x200.png",
-    productPrice: "$1,649.90",
+    productPrice: "$1649.90",
     description: "Descripcion de Shoei X-SPR Pro Marquez Barcelona TC10 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -132,7 +132,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-a-marquez73-tc2-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/shoei-xspr-pro-a-marquez73-v2-helmet-200x200.png",
-    productPrice: "$1,649.90",
+    productPrice: "$1649.90",
     description: "Descripcion de Shoei X-SPR Pro A Marquez73 TC2 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -150,7 +150,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-proxy-tc11-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/shoei-xspr-pro-proxy-tc11-helmet-200x200.png",
-    productPrice: "$1,599.90",
+    productPrice: "$1599.90",
     description: "Descripcion de Shoei X-SPR Pro Proxy TC11 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -168,7 +168,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-escalate-tc5-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/shoei-xspr-pro-escalate-tc5-helmet-200x200.png",
-    productPrice: "$1,599.90",
+    productPrice: "$1599.90",
     description: "Descripcion de Shoei X-SPR Pro Escalate TC5 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -186,7 +186,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-escalate-tc10-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/shoei-xspr-pro-escalate-tc10-helmet-200x200.png",
-    productPrice: "$1,599.90",
+    productPrice: "$1599.90",
     description: "Descripcion de Shoei X-SPR Pro Escalate TC10 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -204,7 +204,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-escalate-tc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/X-SPR/shoei-xspr-pro-escalate-tc1-helmet-200x200.png",
-    productPrice: "$1,599.90",
+    productPrice: "$1599.90",
     description: "Descripcion de Shoei X-SPR Pro Escalate TC1 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -222,7 +222,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-realm-tc5-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-realm-tc5-helmet-200x200.png",
-    productPrice: "$1,449.90",
+    productPrice: "$1449.90",
     description: "Descripcion de Shoei GT-Air 3 Realm TC5 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -240,7 +240,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-realm-tc10-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-realm-tc10-helmet-200x200.png",
-    productPrice: "$1,449.90",
+    productPrice: "$1449.90",
     description: "Descripcion de Shoei GT-Air 3 Realm TC10 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -258,7 +258,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-realm-tc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-realm-tc1-helmet-200x200.png",
-    productPrice: "$1,449.90",
+    productPrice: "$1449.90",
     description: "Descripcion de Shoei GT-Air 3 Realm TC1 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -276,7 +276,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-discipline-tc6-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-discipline-tc6-helmet-200x200.png",
-    productPrice: "$1,449.90",
+    productPrice: "$1449.90",
     description: "Descripcion de Shoei GT-Air 3 Discipline TC6 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -294,7 +294,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-discipline-tc2-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-discipline-tc2-helmet-200x200.png",
-    productPrice: "$1,449.90",
+    productPrice: "$1449.90",
     description: "Descripcion de Shoei GT-Air 3 Discipline TC2 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -312,7 +312,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-discipline-tc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-discipline-tc1-helmet-200x200.png",
-    productPrice: "$1,449.90",
+    productPrice: "$1449.90",
     description: "Descripcion de Shoei GT-Air 3 Discipline TC1 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -330,7 +330,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/arai-rx-7v-evo-tatsuki-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/ARAI/RX-7V/Tatsuki%20(1)-200x200.jpg",
-    productPrice: "$1,349.95",
+    productPrice: "$1349.95",
     description: "Descripcion de Arai RX-7V Evo Tatsuki Helmet",
     subcategory: "full face",
     brand: "arai",
@@ -348,7 +348,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-white-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/shoei-xspr-pro-gloss-white-helmet-200x200.jpg",
-    productPrice: "$1,299.90",
+    productPrice: "$1299.90",
     description: "Descripcion de Shoei X-SPR Pro White Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -366,7 +366,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-x-spr-pro-gloss-black-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/shoei-xspr-pro-gloss-black-helmet-200x200.jpg",
-    productPrice: "$1,299.90",
+    productPrice: "$1299.90",
     description: "Descripcion de Shoei X-SPR Pro Gloss Black Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -384,7 +384,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-matt-deep-grey-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-solid-matt-deep-grey-helmet-200x200.jpg",
-    productPrice: "$1,299.90",
+    productPrice: "$1299.90",
     description: "Descripcion de Shoei GT-Air 3 Matt Deep Grey Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -402,7 +402,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-matt-blue-metallic-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-solid-matt-blue-metallic-helmet-200x200.jpg",
-    productPrice: "$1,299.90",
+    productPrice: "$1299.90",
     description: "Descripcion de Shoei GT-Air 3 Matt Blue Metallic Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -420,7 +420,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-matt-black-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-solid-matt-black-helmet-200x200.jpg",
-    productPrice: "$1,299.90",
+    productPrice: "$1299.90",
     description: "Descripcion de Shoei GT-Air 3 Matt Black Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -438,7 +438,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-white-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-solid-gloss-white-helmet-200x200.jpg",
-    productPrice: "$1,249.90",
+    productPrice: "$1249.90",
     description: "Descripcion de Shoei GT-Air 3 White Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -456,7 +456,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-gt-air-3-gloss-black-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/GT-AIR%203/shoei-gt-air3-solid-gloss-black-helmet-200x200.jpg",
-    productPrice: "$1,249.90",
+    productPrice: "$1249.90",
     description: "Descripcion de Shoei GT-Air 3 Gloss Black Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -474,7 +474,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-mm93-track-tc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NXR2/2023/shoei-nxr-2-mm93-track-tc1-helmet-200x200.png",
-    productPrice: "$1,199.90",
+    productPrice: "$1199.90",
     description: "Descripcion de Shoei NXR2 MM93 Track TC1 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -492,7 +492,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-diggia-replica-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NXR2/2023/shoei-nxr2-diggia-replica-helmet-200x200.png",
-    productPrice: "$1,199.90",
+    productPrice: "$1199.90",
     description: "Descripcion de Shoei NXR2 Diggia Replica Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -510,7 +510,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-yonder-tc2-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/SHOEI%20DECEMBER%202022/shoei-nxr2-yonder-tc-2-helmet-200x200.jpeg",
-    productPrice: "$1,149.90",
+    productPrice: "$1149.90",
     description: "Descripcion de Shoei NXR2 Yonder TC2 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -528,7 +528,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-ideograph-tc6-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/SHOEI%20DECEMBER%202022/shoei-nxr2-ideograph-tc6-helmet-200x200.jpg",
-    productPrice: "$1,149.90",
+    productPrice: "$1149.90",
     description: "Descripcion de Shoei NXR2 Ideograph TC6 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -546,7 +546,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-gleam-tc5-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NXR2/2023/shoei-nxr2-gleam-tc5-helmet-200x200.jpg",
-    productPrice: "$1,149.90",
+    productPrice: "$1149.90",
     description: "Descripcion de Shoei NXR2 Gleam TC5 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -564,7 +564,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-fortress-tc6-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/SHOEI%20DECEMBER%202022/shoei-nxr2-fortress-tc-6-helmet-200x200.jpeg",
-    productPrice: "$1,149.90",
+    productPrice: "$1149.90",
     description: "Descripcion de Shoei NXR2 Fortress TC6 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -582,7 +582,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-fortress-tc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/SHOEI%20DECEMBER%202022/shoei-nxr2-fortress-tc-1-helmet-200x200.jpeg",
-    productPrice: "$1,149.90",
+    productPrice: "$1149.90",
     description: "Descripcion de Shoei NXR2 Fortress TC1 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -600,7 +600,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-accolade-tc10-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/SHOEI%20DECEMBER%202022/shoei-nxr2-accolade-tc-10-helmet-200x200.jpeg",
-    productPrice: "$1,149.90",
+    productPrice: "$1149.90",
     description: "Descripcion de Shoei NXR2 Accolade TC10 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -618,7 +618,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/arai-quantic-ray-black-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/ARAI/QUANTIC/ARAI-QUANTIC-RAY-BLACK-HELMET-200x200.png",
-    productPrice: "$1,139.95",
+    productPrice: "$1139.95",
     description: "Descripcion de Arai Quantic Ray Black Helmet",
     subcategory: "full face",
     brand: "arai",
@@ -636,7 +636,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets?product_id=11869",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/ARAI/QUANTIC/ARAI-QUANTIC-FACE-GREY-HELMET-200x200.png",
-    productPrice: "$1,139.95",
+    productPrice: "$1139.95",
     description: "Descripcion de Arai Quantic Face Grey Helmet",
     subcategory: "full face",
     brand: "arai",
@@ -654,7 +654,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/arai-quantic-face-blue-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/ARAI/QUANTIC/ARAI-QUANTIC-FACE-BLUE-HELMET-200x200.png",
-    productPrice: "$1,139.95",
+    productPrice: "$1139.95",
     description: "Descripcion de Arai Quantic Face Blue Helmet",
     subcategory: "full face",
     brand: "arai",
@@ -672,7 +672,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-origami-tc5-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NXR2/2023/shoei-nxr2-origami-tc5-helmet-200x200.png",
-    productPrice: "$1,049.95",
+    productPrice: "$1049.95",
     description: "Descripcion de Shoei NXR2 Origami TC5 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -690,7 +690,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-nxr2-faust-tc5-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NXR2/NXR2-FAUST-TC5-200x200.jpeg",
-    productPrice: "$1,049.95",
+    productPrice: "$1049.95",
     description: "Descripcion de Shoei NXR2 Faust TC5 Helmet",
     subcategory: "full face",
     brand: "shoei",
@@ -708,7 +708,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/hjc-rpha-11-two-face-dc-comics-mc1sf-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/HJC/2023/hjc-rpha-11-two-face-dc-comics-helmet-200x200.jpeg",
-    productPrice: "$1,049.90",
+    productPrice: "$1049.90",
     description: "Descripcion de HJC RPHA-11 Two Face DC Comics MC1SF Helmet",
     subcategory: "full face",
     brand: "hjc",
@@ -726,7 +726,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/hjc-rpha-11-carbon-bleer-mc1-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/HJC/RPHA11/CARBON/RPHA11-C-BLEER-mc1-side-200x200.png",
-    productPrice: "$1,049.90",
+    productPrice: "$1049.90",
     description: "Descripcion de HJC RPHA-11 Carbon Bleer MC1 Helmet",
     subcategory: "full face",
     brand: "hjc",
@@ -3591,7 +3591,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-neotec-3-satori-tc-5-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NEOTEC%20III/shoei-neotec-3-satori-tc5-helmet-200x200.jpg",
-    productPrice: "$1,499.90",
+    productPrice: "$1499.90",
     description: "Descripcion de Shoei Neotec 3 Satori TC-5 Helmet ",
     subcategory: "modular",
     brand: "shoei",
@@ -3609,7 +3609,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-neotec-3-grasp-tc-5-helmet-",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NEOTEC%20III/shoei-neotec-3-grasp-TC-5-helmet-200x200.png",
-    productPrice: "$1,499.90",
+    productPrice: "$1499.90",
     description: "Descripcion de Shoei Neotec 3 Grasp TC-5 Helmet ",
     subcategory: "modular",
     brand: "shoei",
@@ -3627,7 +3627,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-neotec-3-grasp-tc-10-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NEOTEC%20III/shoei-neotec-3-grasp-TC-10-helmet-200x200.png",
-    productPrice: "$1,499.90",
+    productPrice: "$1499.90",
     description: "Descripcion de Shoei Neotec 3 Grasp TC-10 Helmet ",
     subcategory: "modular",
     brand: "shoei",
@@ -3645,7 +3645,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-neotec-3-matt-black-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NEOTEC%20III/shoei-neotec-3-matt-black-helmet-200x200.jpg",
-    productPrice: "$1,349.90",
+    productPrice: "$1349.90",
     description: "Descripcion de Shoei Neotec 3 Matt Black Helmet ",
     subcategory: "modular",
     brand: "shoei",
@@ -3663,7 +3663,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-neotec-3-white-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NEOTEC%20III/shoei-neotec-3-white-helmet-200x200.jpg",
-    productPrice: "$1,299.90",
+    productPrice: "$1299.90",
     description: "Descripcion de Shoei Neotec 3 White Helmet ",
     subcategory: "modular",
     brand: "shoei",
@@ -3681,7 +3681,7 @@ const DATA_PRODUCTS = [
       "https://www.thehelmetwarehouse.com.au/helmets/shoei-neotec-3-gloss-black-helmet",
     imageSrc:
       "https://www.thehelmetwarehouse.com.au/image/cache/catalog/SHOEI/NEOTEC%20III/shoei-neotec-3-black-helmet-200x200.jpg",
-    productPrice: "$1,299.90",
+    productPrice: "$1299.90",
     description: "Descripcion de Shoei Neotec 3 Gloss Black Helmet ",
     subcategory: "modular",
     brand: "shoei",
