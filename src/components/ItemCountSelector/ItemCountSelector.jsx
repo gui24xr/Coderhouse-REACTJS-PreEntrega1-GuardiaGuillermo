@@ -1,27 +1,29 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { ItemDetailContext } from "../../context/ItemDetailContext";
 
 const ItemCountSelector = () => {
 
-    const contexto = useContext(ItemDetailContext)
+    const contextoItemDetail = useContext(ItemDetailContext)
+    const contextoCarrito = useContext(CartContext)
     const [selectedQuantity, setSeletectedQuantity] = useState();
 
     const addQuantity = () => {
-        if (contexto.availableStock) {
+        if (contextoItemDetail.availableStock) {
             //Lo trabo con esta condicion por si viene un undefined de parametro
-            contexto.setSelectedQuantity(selectedQuantity + 1)
-            selectedQuantity < contexto.availableStock &&
+            contextoItemDetail.setSelectedQuantity(selectedQuantity + 1)
+            selectedQuantity < contextoItemDetail.availableStock &&
                 setSeletectedQuantity(selectedQuantity + 1);
         }
     };
 
     const decQuantity = () => {
-        if (contexto.availableStock) {
+        if (contextoItemDetail.availableStock) {
             //Lo trabo con esta condicion por si viene un undefined de parametro
-            contexto.setSelectedQuantity(selectedQuantity - 1)
-            selectedQuantity > 0 && setSeletectedQuantity(selectedQuantity - 1);
+            contextoItemDetail.setSelectedQuantity(selectedQuantity - 1)
+            selectedQuantity > 1 && setSeletectedQuantity(selectedQuantity - 1);
         }
     };
 
@@ -29,16 +31,16 @@ const ItemCountSelector = () => {
     useEffect(()=>{
         
         //aCTUALIZO TANTo la variable local como la cantidad de la nube
-        contexto.setSelectedQuantity(0)
-        setSeletectedQuantity(0)}
+        contextoItemDetail.setSelectedQuantity(1)
+        setSeletectedQuantity(1)}
                 
-    ,[contexto.availableStock])
+    ,[contextoItemDetail.availableStock])
 
     return (
         <div>
-            <div  className="bg-white border border-gray-200 rounded-lg dark:bg-slate-700 dark:border-gray-700" data-hs-input-number>
+            <div  className="flex flex-row bg-white border border-gray-200 rounded-lg dark:bg-slate-700 dark:border-gray-700" data-hs-input-number>
                 <div className="w-full flex justify-between items-center gap-x-1">
-                    <div className="grow py-2 px-3">
+                    <div className="grow py-1 px-3">
                         <input  className="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white"
                                 type="number"
                                 value={selectedQuantity}
@@ -89,9 +91,29 @@ const ItemCountSelector = () => {
                         </button>
                     </div>
                 </div>
+                <div className="w-2/2 px-2">
+                      <button className="flex flex-row my-4 w-full bg-fuchsia-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
+                      onClick={()=>contextoItemDetail.selectedQuantity>=1 && contextoCarrito.addItem(contextoItemDetail.selectedProductID,contextoItemDetail.selectedQuantity,contextoItemDetail.selectedSize)}
+                      >Añadir
+                      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 ml-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+                      </button>
+                  </div>
             </div>
             
-            <span className="grid justify-items-center text-center center font-semibold text-green-500 dark:text-gray-300">{' ' + contexto.availableStock + ' unidades disponibles'}</span>
+            <span className="mt-1 grid justify-items-center text-center center font-semibold text-green-500 dark:text-gray-300">{' ' + contextoItemDetail.availableStock + ' unidades disponibles'}</span>
             
         </div>
     );

@@ -7,15 +7,26 @@ import ItemCountSelector from "../ItemCountSelector/ItemCountSelector"
 import { useContext } from "react";
 import { ItemDetailContext } from "../../context/ItemDetailContext"
 import { CartContext } from "../../context/CartContext";
+import { getStockProduct } from "../../DATA/data_manager";
 
 
 const ItemDetail = ({ product }) => {
 
   //Este contexto va a tener todos los states que se manejaran entre los diferentes componentes que tiene nuestro itemDetail
+  
+  
+  
   const contextoItemDetail = useContext(ItemDetailContext)
   const contextoCarrito = useContext(CartContext)
   contextoItemDetail.setSelectedProductID(product.productID)
+
+  const productWithStockByCategories = contextoItemDetail.selectedProductID!==undefined && getStockProduct(contextoItemDetail.selectedProductID).isStockByCategories
+  
+  //contextoItemDetail.setAvailableStock(contextoItemDetail.selectedProductID!==undefined ? getStockProduct(contextoItemDetail.selectedProductID).stockCount : 0)
+
+
   console.log('SelectedProductID', contextoItemDetail.selectedProductID)
+  console.log('Por talla: ', productWithStockByCategories)
 
   
 
@@ -73,14 +84,16 @@ const comprarProducto = () =>{
                 </div>
              
                 
-                <StockVisor/>
+                
+             <StockVisor/>
+               
                 <ItemCountSelector/>
                 
                 <div className="flex flex-col mx-2 mb-4">
                   <div className="w-2/2 px-2">
-                      <button className="my-4 w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
-                      onClick={()=>contextoCarrito.addItem(contextoItemDetail.selectedProductID,contextoItemDetail.selectedQuantity,contextoItemDetail.ItemDetailselectedSize)}
-                      >Agregar al carrito</button>
+                      <button className="my-4 w-full bg-sky-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
+                      onClick={()=>contextoItemDetail.selectedQuantity>=1 && contextoCarrito.addItem(contextoItemDetail.selectedProductID,contextoItemDetail.selectedQuantity,contextoItemDetail.selectedSize)}
+                      >Ir al carrito</button>
                   </div>
                   <div className="w-2/2 px-2">
                       <button className="w-full bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"

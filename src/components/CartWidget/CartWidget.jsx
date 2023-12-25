@@ -6,7 +6,7 @@ import { CartContext } from '../../context/CartContext';
 
 export default function CartWidget() {
 
-  const contextoCarrito = useContext(CartContext)
+  const {cartLength} = useContext(CartContext)
 
 //Provisorio xq se que esto mas tarde vendra de la BD
 
@@ -14,7 +14,7 @@ export default function CartWidget() {
     <div className="container-cartwidget">
     
     <CgShoppingCart className='icono' size={24} color='white'/>
-    <span className='cantItems'>{contextoCarrito.getCartSize()}</span>
+    <span className='cantItems'>{cartLength}</span>
          
   </div>
   )

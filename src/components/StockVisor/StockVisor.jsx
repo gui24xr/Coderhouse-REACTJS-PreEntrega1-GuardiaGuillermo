@@ -19,8 +19,7 @@ export default function StockVisor() {
  
     //const [stockCountInfo, setStockCountInfo] = useState( stockProductInfo.isStockByCategories ? stockProductInfo.categoriesList[0] : stockProductInfo.stockByCount )
     const [selectedCategory, setSelectedCategory] = useState('xx' )
-
-    
+   
     console.log('stock: ',contexto.availableStock, 'categoria:' , contexto.selectedSize, 'cant: ', contexto.selectedQuantity)
      if ( stockProductInfo.isStockByCategories ){
 
@@ -34,6 +33,7 @@ export default function StockVisor() {
             <button 
               onClick={(e)=>{contexto.setAvailableStock(stockProductInfo.stockCount[category])
                             contexto.setSelectedSize(category) //El tamaño coincide con la categoria de talle
+                            contexto.setSelectedQuantity(1)
                             setSelectedCategory(category)
                               
                              }}
@@ -61,8 +61,11 @@ export default function StockVisor() {
 
     else{
       //Este renderizado es solo para los productos que no tienen categoria en su stock ejemplo
+      contexto.setAvailableStock(stockProductInfo.stockCount)
+      contexto.setSelectedSize('no')
+
       return (
-      <div>fddhd</div>)
+        <span className="font-bold text-gray-700 dark:text-gray-300">Seleccionar cantidad :</span>)
     }
   }
 

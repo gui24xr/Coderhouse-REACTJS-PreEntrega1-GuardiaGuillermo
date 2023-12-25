@@ -10,7 +10,7 @@ export const ItemDetailProvider = ({children}) => {
    
     
     const [selectedProductID, setSelectedProductID] = useState(0)
-    const [selectedQuantity, setSelectedQuantity] = useState(0)
+    const [selectedQuantity, setSelectedQuantity] = useState(1)
     const [selectedSize, setSelectedSize] = useState(null)
     const [availableStock, setAvailableStock] = useState(0)
 
