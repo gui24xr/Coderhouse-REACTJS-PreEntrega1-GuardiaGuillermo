@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { getDocs, collection, addDoc, setDoc } from 'firebase/firestore';
+import { getDocs, collection, addDoc, doc, setDoc, writeBatch } from 'firebase/firestore';
 import { db } from '../../config/firebase'; //Referencia a la base de datos
 import DATA_PRODUCTS from '../../DATA/product_data';
 
@@ -10,8 +10,8 @@ const Visualizador = () => {
     /*la funcion collection toma como parametro una referencia a una base de datos, y un nombre de coleccion 
     /y devuelve Referencia a una coleccion de datos*/
     const [itemList, setItemList] = useState([])
-    const itemsCollectionRef = collection(db, "prods")
-    const ref2 = db.collection('items')
+    const itemsCollectionRef = collection(db, "items")
+
 
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Visualizador = () => {
 
         }
 
-        getItemList()
+        //getItemList()
     }, [])
 
 
@@ -40,41 +40,50 @@ const Visualizador = () => {
 
     const addItemsToDB = async () => {
 
-       await setDoc(itemsCollectionRef,)
+    const batch = writeBatch(db)
+       // Define los documentos que deseas agregar
+    const docData1 = { campo1: 'valor1', campo2: 'valor2' };
+    //const docData2 = { campo1: 'valor3', campo2: 'valor4' };
+    DATA_PRODUCTS.forEach(product =>{
+        let docRef = doc(db,'items',(product.productID).toString())
+        batch.set(docRef,product)
+       //console.log(product)
+    })
+    
+    const docRef1 = doc(db,'items','id48') // Firestore generará un ID único para este documento
+    batch.set(docRef1, docData1);
+    batch.commit()
+    
+    }
 
+    const addItemsWithSetToDB = async () => {
+
+        //Para agregar algo id propio usamos setDoc
+
+        /*
+         setDoc(referenciaal dopcumento, documento nuevo)
+
+         y la referencia en este caso es doc(db,coleccion,id)
+         //si no existe lo crea, si existe lo actualiza
+        */ 
+       //await setDoc(doc(db,'items','id3'),{ 'obj131': 'obj2422222' })
+
+       const batch = writeBatch(db)
+       // Define los documentos que deseas agregar
+    const docData1 = { campo1: 'valor1', campo2: 'valor2' };
+    const docData2 = { campo1: 'valor3', campo2: 'valor4' };
+
+    const docRef1 = doc(db,'items','id4') // Firestore generará un ID único para este documento
+    batch.set(docRef1, docData1);
+    batch.commit()
     }
 
     return (
-        <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-
-            <span className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>ddh</span>
-            <span className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>{itemList.length}</span>
-            <button
-                onClick={() => addItemToDB()}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-                Agregar
-            </button>
-
-            <button
-            onClick={() => addItemsToDB()}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-            Agregar
-        </button>
-            {itemList.map(item => {
-
-                <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-
-                    <span className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white' >{item.nombre}</span>
-                    <span className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>{item.apellido}</span>
-                </div>
-
-
-
-            })
-
-            }
+        <div>
+            <span>Hola</span>
+            <span>Hola</span>
+            <span>Hola</span>
+            {itemList.map( item => <span>{item.description}</span>)}
         </div>
     )
 }

@@ -2,6 +2,15 @@ import DATA_PRODUCTS from "./product_data";
 import DATA_BRANDS from "./brand_data";
 import DATA_BRANCHS from "./branchs_data";
 
+import { getDocs, collection, addDoc, doc, setDoc, writeBatch } from 'firebase/firestore';
+import { db } from '../config/firebase';
+
+//----REFERENCIA A COLECCIONES EN FIREBASE ----------------------//
+const refCollectionProducts = collection(db, "items")
+
+
+
+
 //FUNCIONES RELACIONADAS A LA GESTION DE LOS DATOS.-----------------------------------
 
 //Esta funcion va a lista las categorias existentes en el catalogo
@@ -11,11 +20,29 @@ function quitarRepetidos(array) {
   });
 }
 
+const getAllList = async () => {
+  //getDocs me trae en forma de promesa los datos de la coleccion que le paso por parametro(Le paso la referencia)
+  const data = await getDocs(refCollectionProducts)
+  const filteredData = data.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc
+  }))
+
+
+  return filteredData
+}
+
+
 const getCategoriesFromProductList = () => {
+  //Esta funcion devuelve todas las categorias de productos existentes en el catalogo.
+  //LO hago de esta manera para ganar escabilidad si a futuro apareciese una nueva categoria
+  //Leo todo el catalogo de productos  y extraigo las diferentes categorias existentes.
   let categoryList = DATA_PRODUCTS.map((item) => item.category);
   categoryList = quitarRepetidos(categoryList);
-  //console.log('catego', categoryList)
   return categoryList;
+
+
+
 };
 
 const getProductByID = (productID) => {
@@ -35,10 +62,11 @@ const getProductByID = (productID) => {
   //console.log(myProduct)
   //return myProduct;
 
-  return new Promise((resolve)=>{
-    setTimeout(()=>{
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
       resolve(myProduct)
-    },0)
+    }, 0)
   })
 
 
@@ -62,85 +90,160 @@ const getUrlImgBrand = (brand) => {
   return DATA_BRANDS[position].brandImg;
 };
 
-const getProductList = ()=>{
+const getProductList = () => {
   //La differencia entre esta lista y DATA_PRODUCT es que esta lista devuelve productos con los datos ya cruzados.
   const productList = []
-  DATA_PRODUCTS.forEach( item => productList.push(item))
-
+  DATA_PRODUCTS.forEach(item => productList.push(item))
   //Ya tengo la lista para retornado, con marcas y con todos los datos cruzados.
- 
-  //return productList
-
   return new Promise((resolve) => {
-    setTimeout(()=>{
-     
-      resolve(productList)},500)
+    setTimeout(() => {
+
+      resolve(productList)
+    }, 500)
   })
 }
 
-const getProductByCategories = (categoriesArray) =>{
+const getListFromDB = async () => {
+  //Traigo de la base de datos en firebase mi array de productos entero listo para utilizar
+  const data = await getDocs(refCollectionProducts)
+  const filteredData = data.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc
+  }))
+
+
+  return filteredData
+}
+
+
+const getProductList2 = async () => {
+
+  const productos = await getListFromDB()
+  console.log(productos)
+  return productos
+}
+
+const getProductByCategories = (categoriesArray) => {
   //Devuelve los productos del array de categorias pasado por parametro
   //Esto lo voy a usar para el filtro por categorias. Es un filtrado dentro de cada categoria 
   const productsFilterByCategories = []
-  
+
   DATA_PRODUCTS.forEach(item => {
     //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
     //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
-    if ( categoriesArray.indexOf(item.category)>=0 ) productsFilterByCategories.push(item)
+    if (categoriesArray.indexOf(item.category) >= 0) productsFilterByCategories.push(item)
   })
-   
-    return productsFilterByCategories
+
+  return productsFilterByCategories
 
 
 }
 
 const getOfferList = () => {
   //Devuelve un array de productos de oferta al azar del array de todos lso produdctos 
-  const productsInOffer = [] 
+  const productsInOffer = []
   //Esto hay que modificarlo asique pedire 'cant' de productos 
-  for (let i=0; i < 15; i++){
+  for (let i = 0; i < 15; i++) {
     productsInOffer.push(DATA_PRODUCTS[i])
   }
 
-  return new Promise((resolve)=>{
-    setTimeout(()=>{
+  return new Promise((resolve) => {
+    setTimeout(() => {
       resolve(productsInOffer)
-    },500)
+    }, 500)
   })
 
 
 }
 
-const getProductsByCategory = (category) =>{
+const getProductsByCategory2 = (category) => {
   //Devuelve los productos del la categoria pasada por parametro
-   const productsOfCategory = []
-  
-  DATA_PRODUCTS.forEach(item => {
-    //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
-    //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
-   
-    if ( item.category === category )productsOfCategory.push(item)
-  })
+  const productsOfCategory = []
 
-  
-  //console.log('ppp: ',productsOfCategory)
-    //return productsOfCategory
-    return new Promise((resolve)=>{
-      setTimeout(()=>{
-       
-        resolve(productsOfCategory)
-      },500)
+  const getItemList = async () => {
+    //getDocs me trae en forma de promesa los datos de la coleccion que le paso por parametro(Le paso la referencia)
+    const data = await getDocs(refCollectionProducts)
+    const filteredData = data.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc
+    }))
+
+    //Ahora busco los productos de la categoria y los meto a un nuevo array para devolver como promesa
+    filteredData.forEach(item => {
+      //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
+      //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
+      if (item.category === category) productsOfCategory.push(item)
     })
-}
- 
 
-const getBrandsList = () =>{
+    return productsOfCategory
+  }
+
+
+  return getItemList()
+}
+
+const getProductsByCategory = (category) => {
+  //Devuelve los productos del la categoria pasada por parametro
+  const productsOfCategory = []
+
+  
+    //Ahora busco los productos de la categoria y los meto a un nuevo array para devolver como promesa
+    DATA_PRODUCTS.forEach(item => {
+      //Recorro todo el catalogo y si la categoria del producto esta en categoriesArray entonces agrego al array a devolver el producto
+      //Y como quiero que lo manda con toda la data entera como imagen de su marca, etc entonces lo pido x getproductbyID
+      if (item.category === category) productsOfCategory.push(item)
+    })
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(productsOfCategory)
+      }, 500)
+    })
+  
+  }
+
+//Tallas y stock----------------------------------------
+const getStockProduct = (productID) => {
+  //Devuelve un objeto con con las tallas existentes,cantidades y stock por conteo total.
+
+  //console.log('ppp: ', productID)
+  const productIndex = DATA_PRODUCTS.findIndex(item => item.productID ===Number(productID))
+  const myProduct = DATA_PRODUCTS[productIndex]
+ /*Se devuelve un objeto de la siguiente forma:
+  Si no es por categorias el stock entonces se devuelve vacio categorieList
+  {
+    stockByCategories : true o false segun corresponda
+    categoriesList:[categoria1, categoria2...categoriaN],
+    stockCount:{l:5,m:2,s:4}
+    
+    si no tiene categorias no tiene propiuedades el objeto dira
+    stockCount: cantidadTotal
+
+  }*/
+  
+
+  const objetoStock = {
+    isStockByCategories : myProduct.stockByCategories ? true : false,
+    categoriesList: myProduct.stockByCategories ? [...Object.keys(myProduct.stockBySize)] : ['sin categorias'],
+    //Ahora construyo un objeto y luego hago deconstructuracion
+    stockCount: myProduct.stockByCategories ? {...myProduct.stockBySize} : myProduct.stockByCount
+  }
+
+  //console.log(objetoStock)
+  
+  return objetoStock
+}
+
+
+//-- SUCURSALES --------------------------------------------------------------------------------//
+
+const getBrandsList = () => {
   return DATA_BRANDS
 }
 
 const getProductsByBrand = (brand) => {
 
-  return DATA_PRODUCTS.filter( item => item.brand === brand)
+  return DATA_PRODUCTS.filter(item => item.brand === brand)
 }
 
 const getBranchsList = () => {
@@ -159,4 +262,5 @@ export {
   getBrandsList,
   getProductsByBrand,
   getBranchsList,
+  getStockProduct,
 };

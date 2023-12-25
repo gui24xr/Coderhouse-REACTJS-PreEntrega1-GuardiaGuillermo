@@ -1,17 +1,20 @@
 import React from 'react'
 import './CartWidget.styles.css'
 import { CgShoppingCart } from "react-icons/cg";
-
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 export default function CartWidget() {
 
+  const contextoCarrito = useContext(CartContext)
+
 //Provisorio xq se que esto mas tarde vendra de la BD
-const cantItems = 10
+
   return (
     <div className="container-cartwidget">
     
     <CgShoppingCart className='icono' size={24} color='white'/>
-    <span className='cantItems'>{cantItems}</span>
+    <span className='cantItems'>{contextoCarrito.getCartSize()}</span>
          
   </div>
   )
