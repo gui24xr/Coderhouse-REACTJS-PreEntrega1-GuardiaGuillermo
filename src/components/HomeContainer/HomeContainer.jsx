@@ -13,7 +13,7 @@ export default function HomeContainer() {
   
   return (
     <div className="flex flex-col">
-   
+      <Visualizador/>
       <CarrouselOffers />
       <CarrouselBrands />
       <CarrouselBranchs />

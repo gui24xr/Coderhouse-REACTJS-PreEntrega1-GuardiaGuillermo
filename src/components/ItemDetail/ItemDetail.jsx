@@ -8,17 +8,14 @@ import { useContext } from "react";
 import { ItemDetailContext } from "../../context/ItemDetailContext"
 import { CartContext } from "../../context/CartContext";
 import { getStockProduct } from "../../DATA/data_manager";
+import { useStock } from "../../hooks/useStock";
 
 
 
 const ItemDetail = ({ product }) => {
 
   //Este contexto va a tener todos los states que se manejaran entre los diferentes componentes que tiene nuestro itemDetail
-  
-  
-  
   const contextoItemDetail = useContext(ItemDetailContext)
-  const contextoCarrito = useContext(CartContext)
   contextoItemDetail.setSelectedProductID(product.productID)
 
   const productWithStockByCategories = contextoItemDetail.selectedProductID!==undefined && getStockProduct(contextoItemDetail.selectedProductID).isStockByCategories
@@ -29,8 +26,8 @@ const ItemDetail = ({ product }) => {
   console.log('SelectedProductID', contextoItemDetail.selectedProductID)
   console.log('Por talla: ', productWithStockByCategories)
 
-  
-
+  const {getStockCount} = useStock(product.productID)
+  getStockCount()
     //Esta funcion se va a encargar de armar el objeto que le voy a enviar al carrito
   
     
