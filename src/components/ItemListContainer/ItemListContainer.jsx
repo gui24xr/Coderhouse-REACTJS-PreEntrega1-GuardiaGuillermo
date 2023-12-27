@@ -10,6 +10,7 @@ import {
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import  useDataProducts  from '../../hooks/useDataProducts'
+import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 
 export default function ItemListContainer() {
   const [products, setProducts] = useState([]);
@@ -22,7 +23,7 @@ export default function ItemListContainer() {
     //console.log(categoryID,brandID)
     //setProducts(getProductsByBrandFromFB(brandID))
      if (!loading){
-      alert('carga terminada')
+      //alert('carga terminada')
    if (categoryID) {categoryID !== "todos" ? setProducts(getProductsByCategoryFromFB(categoryID)) : setProducts(getProductListFromFB())}
     else setProducts(getProductsByBrandFromFB(brandID))
      }
@@ -32,8 +33,9 @@ export default function ItemListContainer() {
   }, [categoryID, brandID,loading]);
 
   return (
-    <div className="flex flex-row">
-      <ItemList products={products} />
+    <div className="m-5 h-[1261px] w-full overflow-y-auto h-100">
+      {loading ? <SpinnerLoading/> : <ItemList products={products}/>}
+    
     </div>
   );
 }

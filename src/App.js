@@ -15,7 +15,7 @@ import Footer from './components/Footer/Footer';
 function App() {
 
   return (
-    <div className="mx-auto md:p-4 lg:p-6 xl:p-8">
+    <div className="mx-auto mt-0 md:px-4 lg:px-6 xl:px-3">
       <BrowserRouter>
         <CartProvider>
           <HeaderContainer/>

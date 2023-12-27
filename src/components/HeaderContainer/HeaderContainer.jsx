@@ -1,5 +1,5 @@
 import React from "react";
-//import "./HeaderContainer.styles.css";
+
 import BannerContainer from "../BannerContainer/BannerContainer";
 import NavBar from "../NavBar/NavBar";
 import SearchInput from "../SearchInput.jsx/SearchInput";
@@ -12,7 +12,7 @@ export default function HeaderContainer() {
     
       <BannerContainer/>
       <NavBar/>
-      <SearchInput/>
+      
       
     </div>
   );

@@ -33,17 +33,7 @@ const ItemDetail = ({ product }) => {
     
     //Este es el objeto que se le enviara al carrito
   
-  
-  
-
-
-const comprarProducto = () =>{
-    //Esta funcion manda a comprar el producto sin pasar x el carrito
-  
-    console.log('Ir a comprar: ')
-}
-
-  
+    
 
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-8">
@@ -91,7 +81,7 @@ const comprarProducto = () =>{
                
                       <NavLink 
                       to={'/cart'}
-                      className="my-4 w-full bg-sky-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
+                      className="my-4 w-full flex flex-row justify-center  bg-sky-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
                       >Ir al carrito
                   
                       </NavLink>
@@ -99,7 +89,7 @@ const comprarProducto = () =>{
 
              
                  
-                      <NavLink className="w-full bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"
+                      <NavLink className="w-full flex flex-row justify-center bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"
                      
                       >Comprar Ahora</NavLink>
                   

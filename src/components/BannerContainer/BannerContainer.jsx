@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import LoginNavBar from "../LoginNavBar/LoginNavBar";
 import NavBar from "../NavBar/NavBar";
 
@@ -38,9 +38,19 @@ const BannerContainer = () => {
     getPicForBanner()
   },[])
 
+  const miRef = useRef(null);
+
+  useEffect(() => {
+    // Obtener las dimensiones del componente después de que se renderiza
+    const dimensiones = miRef.current.getBoundingClientRect();
+    console.log('Dimensiones:', dimensiones);
+  }, []);
+
+
   return (
-    <div className="w-full bg-cover bg-center flex flex-col content-between" style={{height: "14rem",backgroundImage: picForBanner, }}>
+    <div ref={miRef} className="w-full min-h-48 bg-cover bg-center flex flex-col content-between" style={{backgroundImage: picForBanner, }}>
       <LoginNavBar/>
+      
  
     </div>
   );
