@@ -26,7 +26,8 @@ const ItemCountSelector = ({availableStock,addToCartFunction}) => {
         <div>
             <div  className="flex flex-row bg-white border border-gray-200 rounded-lg dark:bg-slate-700 dark:border-gray-700" data-hs-input-number>
                 <div className="w-full flex justify-between items-center gap-x-1">
-                    <div className="grow py-1 px-3">
+                    <div className="flex flex--row grow py-1 px-3">
+                        <span className='mx-2'>Cantidad: </span>
                         <input  className="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white"
                                 type="number"
                                 value={number}

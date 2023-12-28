@@ -10,6 +10,11 @@ export default function CarrouselContainer({ titleComponent,itemList,containerCl
   const [endFrame,setEndFrame] = useState(CANTIDADMOSTRADA)
   const [ItemsMostrados,setItemsMostrados]=useState(itemList.slice(initialFrame,endFrame))
 
+  //console.log('items mostraos:', ItemsMostrados)
+  useEffect(()=>{
+    setItemsMostrados(itemList.slice(0,CANTIDADMOSTRADA))
+  },[])
+
   const moveForward = () => {
     if(endFrame < (itemList.length-1)){
       setInitialFrame(prevState => prevState+ 1)

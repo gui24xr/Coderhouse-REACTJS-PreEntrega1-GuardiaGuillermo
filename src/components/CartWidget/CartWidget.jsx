@@ -8,11 +8,11 @@ import { useState, useEffect } from 'react';
 
 export default function CartWidget() {
 
-  const {cart} = useContext(CartContext)
-  const [cantidad,setCantidad] = useState(cart.length)
+  const {cartCount} = useContext(CartContext)
+  const [cantidad,setCantidad] = useState(cartCount)
 
   useEffect(()=>{
-    setCantidad(cart.length)
+    setCantidad(cartCount)
   })
 
 //Provisorio xq se que esto mas tarde vendra de la BD
