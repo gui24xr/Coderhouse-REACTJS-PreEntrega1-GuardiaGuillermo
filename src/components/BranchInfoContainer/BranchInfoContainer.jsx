@@ -48,7 +48,7 @@ const BranchInfoContainer = () => {
 
                       <Marker 
                               className = 'rounded-full border border-gray-100 shadow-sm '
-                              bootstrapURLKeys={{ key: "AIzaSyAglupgqMfkvyqOSmS5qEWdZY-CC8VHbeo" }} 
+                              bootstrapURLKeys={{ key: 'AIzaSyAglupgqMfkvyqOSmS5qEWdZY-CC8VHbeo' }} 
                               lat={-34.61} 
                               lng={-58.38} 
                               text="Mi Marcador" />

@@ -1,8 +1,6 @@
 import React from "react";
 import { useState, useContext, useEffect } from "react";
-import { getStockProduct } from "../../DATA/data_manager";
-import { ItemDetailContext } from "../../context/ItemDetailContext";
-import { useStock } from "../../hooks/useStock";
+
 /*Este componente se encarga de mostrar para seleccionar los talles o categorias del producto y marca en el contexto el talle
 elegido. En el producto por categorias marca el talle, en los productos que no tienen categoria pone selected size a null y no
 renderiza selector */
@@ -15,16 +13,15 @@ const classSelectedButton =
 "my-1 bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold mr-2 ";
 
 
-export default function StockVisor({productCategoriesList,categorySelecter}) {
-
-
- 
-    
+export default function StockVisor({productCategoriesList,sizeSelecter}) {
+   
   const [selectedCategory, setSelectedCategory] = useState(null)
-  
+ // setSelectedCategory(productCategoriesList[0])
+ 
 
 useEffect(()=>{
- if(productCategoriesList.length>=1) setSelectedCategory(productCategoriesList[0])
+setSelectedCategory(productCategoriesList[0])
+sizeSelecter(productCategoriesList[0])
 },[])
 
   
@@ -44,7 +41,7 @@ useEffect(()=>{
                   onClick={() => {
                     
                     setSelectedCategory(category)
-                    categorySelecter(category)
+                    sizeSelecter(category)
                   }}
                   key={category}
                   className={

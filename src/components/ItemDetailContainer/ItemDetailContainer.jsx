@@ -15,12 +15,12 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     
-            //Esto es para trabajar desde el lado cliente.
-          /*  getProductByID(productID)
+  //Esto es para trabajar con los datos desde el data_products archivo
+      /*  getProductByID(productID)
             .then(response => setProduct(response))
             .catch(err=> console.log(err))*/
                 
-
+    //Con esta linea trabajamos desde firebase.
     !loading && setProduct(getProductByIDFromFB(productID));
   }, [productID, loading]);
 

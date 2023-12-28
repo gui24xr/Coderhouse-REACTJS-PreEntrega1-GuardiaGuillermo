@@ -13,35 +13,27 @@ import { CartContext } from "../../context/CartContext";
 const ItemDetail = ({ product }) => {
  
 
-   const [selectedSize, setSelectedSize] = useState(null)
-    const [availableStock, setAvailableStock] = useState(0)
-    const [categoryList, setCategoryList] = useState([])
+  const {addCartItem} = useContext(CartContext)
+  const { getProductCategoriesList, getProductStock } = useStock(product)
 
-   const {addCartItem} = useContext(CartContext)
-/*()=>selectedQuantity>=1 && contextoCarrito.addItem(selectedProduct,selectedQuantity,selectedSize)*/
+  const categoriesList = getProductCategoriesList()
+  
+  //Estados
+  const [selectedSize, setSelectedSize] = useState(null)
+  const [availableStock, setAvailableStock] = useState(0)
 
-
-  const { isByCategories, getProductCategoriesList, getProductStock } = useStock(product);
+//Efectos
+useEffect(()=>{
+  console.log('cambio size a: ', selectedSize)
+  setAvailableStock(getProductStock(selectedSize))
+ },)
 
   const funcionBoton = (cantidadElegida) =>{
-    console.log('Meter al carro ' + cantidadElegida + ' unidades. ' + ' talla ' + selectedSize)
-    console.log('cantidad Elegida: ',cantidadElegida)
-    addCartItem(product,cantidadElegida,selectedSize)
-    
+    //console.log('Meter al carro ' + cantidadElegida + ' unidades. ' + ' talla ' + selectedSize)
+    availableStock > 0 && addCartItem(product,cantidadElegida,selectedSize)
   }
 
-  useEffect(()=>{
-    
-    //console.log(product)
-    //console.log('Productlista', getProductCategoriesList())
-    setCategoryList(getProductCategoriesList())
-  },[])
-
-  useEffect(()=>{
-      console.log('cambio size a: ', selectedSize)
-      setAvailableStock(getProductStock(selectedSize))
-      console.log('stock: ', availableStock)
-  },[selectedSize])
+  
 
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-8">
@@ -98,7 +90,9 @@ const ItemDetail = ({ product }) => {
             
 
            
-            <StockVisor productCategoriesList={categoryList} categorySelecter={setSelectedSize}/>
+            {
+              //Este componente se va a seleccionar unicamente en caso de que tenga categorias el producto
+              categoriesList.length > 1 && <StockVisor productCategoriesList={categoriesList} sizeSelecter={setSelectedSize}/>}
             <ItemCountSelector availableStock={availableStock} addToCartFunction={funcionBoton}/>
        
             <div className="flex flex-col mx-2 mb-4">

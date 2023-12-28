@@ -3,18 +3,24 @@ import { useState, useEffect } from "react";
 
 const ItemCountSelector = ({availableStock,addToCartFunction}) => {
 
+    const classInStock = "mt-1 grid justify-items-center text-center center font-semibold text-green-500 dark:text-gray-300"
+    const classNoStock = "mt-1 grid justify-items-center text-center center font-semibold text-red-500 dark:text-gray-300"
+    
     const [number,setNumber]=useState(1)
+    const [classTextStock,setClassTextStock]=useState()
     const addQuantity = () => number < availableStock && setNumber(number + 1)
     const decQuantity = () => number > 1 && setNumber(number - 1)
     
-    useEffect(()=>setNumber(1),[availableStock])
 
-    const handleSubmit = () => {
-        //e.preventDefault()
-        console.log('submiteado')
-
-        addToCartFunction(number)
-    }
+    useEffect(()=>{
+        if (availableStock > 0) {
+            setNumber(1)
+            setClassTextStock(classInStock)
+         } else{ 
+            setClassTextStock(classNoStock)
+            setNumber(0)
+        }
+    },[availableStock])
 
     return (
         <div>
@@ -93,7 +99,7 @@ const ItemCountSelector = ({availableStock,addToCartFunction}) => {
                   </div>
             </div>
             
-            <span className="mt-1 grid justify-items-center text-center center font-semibold text-green-500 dark:text-gray-300">{' ' + availableStock + ' unidades disponibles'}</span>
+            <span className={classTextStock}>{' ' + availableStock + ' unidades disponibles'}</span>
             
         </div>
     );

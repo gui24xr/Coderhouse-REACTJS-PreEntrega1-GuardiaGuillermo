@@ -3,11 +3,17 @@ import { NavLink } from 'react-router-dom';
 import { CgShoppingCart } from "react-icons/cg";
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { useState, useEffect } from 'react';
 
 
 export default function CartWidget() {
 
-  const {cartLength} = useContext(CartContext)
+  const {cart} = useContext(CartContext)
+  const [cantidad,setCantidad] = useState(cart.length)
+
+  useEffect(()=>{
+    setCantidad(cart.length)
+  })
 
 //Provisorio xq se que esto mas tarde vendra de la BD
 
@@ -18,7 +24,7 @@ export default function CartWidget() {
       </svg>
       <span class="sr-only">Notifications</span>
       Carrito
-      <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">{cartLength}</div>
+      <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">{cantidad}</div>
    
       </NavLink>
   

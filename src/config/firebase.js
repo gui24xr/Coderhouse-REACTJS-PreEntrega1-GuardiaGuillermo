@@ -4,15 +4,18 @@ import { getFirestore } from "firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+/* Ver porque no me deja esconde projectID */
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAglupgqMfkvyqOSmS5qEWdZY-CC8VHbeo",
-  authDomain: "insidehelmet-b45fb.firebaseapp.com",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
   projectId: "insidehelmet-b45fb",
-  storageBucket: "insidehelmet-b45fb.appspot.com",
-  messagingSenderId: "677010684143",
-  appId: "1:677010684143:web:e54eecd048d0ef6aaa431a"
+  projectId2: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
