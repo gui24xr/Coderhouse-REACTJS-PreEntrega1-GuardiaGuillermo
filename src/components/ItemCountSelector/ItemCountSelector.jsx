@@ -1,40 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { ItemDetailContext } from "../../context/ItemDetailContext";
 
-const ItemCountSelector = () => {
+const ItemCountSelector = ({availableStock,addToCartFunction}) => {
 
-    const contextoItemDetail = useContext(ItemDetailContext)
-    const contextoCarrito = useContext(CartContext)
-    const [selectedQuantity, setSeletectedQuantity] = useState();
+    const [number,setNumber]=useState(1)
+    const addQuantity = () => number < availableStock && setNumber(number + 1)
+    const decQuantity = () => number > 1 && setNumber(number - 1)
+    
+    useEffect(()=>setNumber(1),[availableStock])
 
-    const addQuantity = () => {
-        if (contextoItemDetail.availableStock) {
-            //Lo trabo con esta condicion por si viene un undefined de parametro
-            contextoItemDetail.setSelectedQuantity(selectedQuantity + 1)
-            selectedQuantity < contextoItemDetail.availableStock &&
-                setSeletectedQuantity(selectedQuantity + 1);
-        }
-    };
+    const handleSubmit = () => {
+        //e.preventDefault()
+        console.log('submiteado')
 
-    const decQuantity = () => {
-        if (contextoItemDetail.availableStock) {
-            //Lo trabo con esta condicion por si viene un undefined de parametro
-            contextoItemDetail.setSelectedQuantity(selectedQuantity - 1)
-            selectedQuantity > 1 && setSeletectedQuantity(selectedQuantity - 1);
-        }
-    };
-
-    //Este use effect es para que cada vez que venga una cantidad de stock diferente se resetee el contador
-    useEffect(()=>{
-        
-        //aCTUALIZO TANTo la variable local como la cantidad de la nube
-        contextoItemDetail.setSelectedQuantity(1)
-        setSeletectedQuantity(1)}
-                
-    ,[contextoItemDetail.availableStock])
+        addToCartFunction(number)
+    }
 
     return (
         <div>
@@ -43,7 +23,7 @@ const ItemCountSelector = () => {
                     <div className="grow py-1 px-3">
                         <input  className="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0 dark:text-white"
                                 type="number"
-                                value={selectedQuantity}
+                                value={number}
                                 data-hs-input-number-input
                         />
                     </div>
@@ -93,7 +73,7 @@ const ItemCountSelector = () => {
                 </div>
                 <div className="w-2/2 px-2">
                       <button className="flex flex-row my-4 w-full bg-fuchsia-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
-                      onClick={()=>contextoItemDetail.selectedQuantity>=1 && contextoCarrito.addItem(contextoItemDetail.selectedProductID,contextoItemDetail.selectedQuantity,contextoItemDetail.selectedSize)}
+                      onClick={()=>addToCartFunction(number)}
                       >Añadir
                       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +93,7 @@ const ItemCountSelector = () => {
                   </div>
             </div>
             
-            <span className="mt-1 grid justify-items-center text-center center font-semibold text-green-500 dark:text-gray-300">{' ' + contextoItemDetail.availableStock + ' unidades disponibles'}</span>
+            <span className="mt-1 grid justify-items-center text-center center font-semibold text-green-500 dark:text-gray-300">{' ' + availableStock + ' unidades disponibles'}</span>
             
         </div>
     );

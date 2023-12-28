@@ -1,28 +1,27 @@
-import { createContext, useState, useEffect } from "react";
-import { useStock } from "../hooks/useStock";
+import { createContext, useState } from "react";
 
 
-export const ItemDetailContext = createContext()
+
+export const DimentionsContext = createContext()
 
 
-export const ItemDetailProvider = ({children}) => {
+export const DimentionsProvider = ({children}) => {
 
    
     
-    const [selectedProduct, setSelectedProduct] = useState({})
+    const [screenDimention, setScreenDimention] = useState(0)
     const [selectedQuantity, setSelectedQuantity] = useState(1)
     const [selectedSize, setSelectedSize] = useState(null)
     const [availableStock, setAvailableStock] = useState(0)
-    
 
    
     return(
-        <ItemDetailContext.Provider 
+        <DimentionsContext.Provider 
         
             value={
                     {
-                    selectedProduct,
-                    setSelectedProduct, 
+                    selectedProductID,
+                    setSelectedProductID, 
                     selectedQuantity, 
                     setSelectedQuantity,
                     selectedSize, 
@@ -33,6 +32,6 @@ export const ItemDetailProvider = ({children}) => {
                 }
                 }>
             {children}
-        </ItemDetailContext.Provider>
+        </DimentionsContext.Provider>
     )
 }

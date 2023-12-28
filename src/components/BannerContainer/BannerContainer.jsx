@@ -44,6 +44,7 @@ const BannerContainer = () => {
     // Obtener las dimensiones del componente después de que se renderiza
     const dimensiones = miRef.current.getBoundingClientRect();
     console.log('Dimensiones:', dimensiones);
+    console.log('Ancho:', dimensiones.width);
   }, []);
 
 

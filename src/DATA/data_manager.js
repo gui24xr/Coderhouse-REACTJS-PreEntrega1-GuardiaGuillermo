@@ -250,6 +250,7 @@ const getBranchsList = () => {
   return DATA_BRANCHS
 }
 
+
 export {
   getProductList,
   getCategoriesFromProductList,

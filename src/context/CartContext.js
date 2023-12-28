@@ -1,8 +1,8 @@
-import { createContext, useState, prevState } from "react";
+import { createContext, useState, prev, useEffect } from "react";
 import { getProductList } from "../DATA/data_manager";
 import { quitarCaracterDolar } from "../global/funcions";
 
-export const CartContext = createContext({cart:[]})
+export const CartContext = createContext({carti:[]})
 
 
 
@@ -11,6 +11,10 @@ export const CartProvider = ({children}) =>{
     const [cartLength, setCartLenght] = useState(0)
     const [cartAmount, setCartAmount] = useState(0)
 
+   useEffect(()=>{viewCart() 
+    
+                    console.log('ddcart')},[cart])
+
     const isInCart = (productID,size) =>{
         //Devuelve true o false si el producto de productID ya se encuentra en el carrito
         //console.log(cart.some((prod) => prod.productID === productID))
@@ -18,56 +22,73 @@ export const CartProvider = ({children}) =>{
         
     }
 
-    const addItem = ( productID,quantity,size ) =>{
-
+    const addCartItem2 = ( product,quantitySel,size ) =>{
         //Si el producto no esta en el carrito, lo agregamos junto a la cantidad y talle si viene.
         //Pero tambien tenemos la condicion de talles.. si hay talle distinto entonces se agrega nuevo
-        if(!isInCart(productID,size)){
-           
-            //Recuento la cantidad de unidades y la reseteo para alimentar al contador de carrito
-            //setCartLenght(getCartSize())
-            //Pido a la BD para el producto agregado la informacion de precio, imagen, etc para guardar en array.
-            getProductList()
-            .then(response => {
-                    //Response es el array catalogo de productos
-                 const indexInList = response.findIndex(item => item.productID == productID)
-                 setCart(prevState => [...prevState,{productID:productID,
-                                                        quantity: quantity,
+
+        
+
+
+
+        if(!isInCart(product.productID,size)){
+            setCart(prev => [...prev,{ productID:product.productID,
+                                                quantity: quantitySel,
                                                         size:size,
-                                                        productName: response[indexInList].productName,
-                                                        productPrice: response[indexInList].productPrice,
-                                                        productImage: response[indexInList].imageSrc,
-                                                        subTotal: quantity * Number(quitarCaracterDolar(response[indexInList].productPrice)),
-                                                    }])
-                 setCartLenght(getCartSize())
-                 //Calculo los totales
-                 
-                 viewCart()
+                                                        productName: product.productName,
+                                                        productPrice: product.productPrice,
+                                                        productImage: product.imageSrc,
+                                                        subTotal: quantitySel * Number(quitarCaracterDolar(product.productPrice))
+                                                    }])    
+                    
+                    //viewCart()
+                    console.log('carron', cart)
+            }
+                //si el producto esta sumamos cantidad
+        else{ 
+            const cartCopy = cart
+            const index = cartCopy.findIndex( item =>  item.productID === product.productID && item.size === size)
+            cartCopy[index].quantity = cartCopy[index].quantity + quantitySel
+            //console.log('cartCopyIndex: ',cartCopy[index])
+            //console.log('cartcopy',cartCopy)
+    
+            setCart(prev=>cartCopy)
 
-
-            })
-           
-        }
-
-        //si el producto esta sumamos cantidad
-        else{
-           //Me posiciono en el producto dentro del carrito
-            const productInCartIndex = cart.findIndex(item => item.productID == productID && item.size == size)
-            //Ahora me posiciono en el objeto y le sumo la cantidad nueva a la antigua
-             
-                cart[productInCartIndex].quantity = cart[productInCartIndex].quantity + quantity
-                                        
-            console.log('Posicion en carro del producto', productID,': ',productInCartIndex)
-            //Recuento la cantidad de unidades y la reseteo para alimentar al contador de carrito
-            setCartLenght(getCartSize())
-            viewCart()
-            calcularTotalCart()
+            console.log('carron', cart)
             
-        }
-        //Muestro el carro.
-        
-        
+}
+
     }
+
+
+    const addCartItem = ( product,quantitySel,size ) =>{
+        //Si el producto no esta en el carrito, lo agregamos junto a la cantidad y talle si viene.
+        //Pero tambien tenemos la condicion de talles.. si hay talle distinto entonces se agrega nuevo
+
+        const nuevoProducto ={ productID:product.productID,
+                                quantity: quantitySel,
+                                size:size,
+                                productName: product.productName,
+                                productPrice: product.productPrice,
+                                productImage: product.imageSrc,
+                                subTotal: quantitySel * Number(quitarCaracterDolar(product.productPrice))
+                }
+
+        
+        const cartCopy = cart
+        const index = cartCopy.findIndex( item =>  item.productID === product.productID && item.size === size)
+        if (index>0) cartCopy[index].quantity = cartCopy[index].quantity + quantitySel
+        
+        !isInCart(product.productID,size) ? setCart(prev => [...prev,nuevoProducto]) : 
+        
+        setCart(prev => {
+            
+            return [...prev,nuevoProducto]})        
+            
+}
+
+    
+
+
 
     const calcularTotalCart=()=>{
 
@@ -108,7 +129,7 @@ export const CartProvider = ({children}) =>{
     const getCart = () => cart
 
     return(
-        <CartContext.Provider value={{getCart,isInCart,viewCart,addItem,getCartSize,cartLength,deleteCartItem,getCartAmount}}>
+        <CartContext.Provider value={{getCart,isInCart,viewCart,addCartItem,getCartSize,cartLength,deleteCartItem,getCartAmount}}>
            {children}
         </CartContext.Provider>
     )

@@ -4,6 +4,7 @@ import { getDocs, collection, addDoc, doc, setDoc, writeBatch } from 'firebase/f
 import { db } from '../../config/firebase'; //Referencia a la base de datos
 import DATA_PRODUCTS from '../../DATA/product_data';
 import useDataProducts from '../../hooks/useDataProducts';
+import DATA_BRANDS from '../../DATA/brand_data';
 
 
 const Visualizador = () => {
@@ -14,7 +15,7 @@ const Visualizador = () => {
     const [itemList, setItemList] = useState([])
     const itemsCollectionRef = collection(db, "items")
 
-    const {DATA_PRODUCTS, verResultado} = useDataProducts()
+    //const {DATA_PRODUCTS, verResultado} = useDataProducts()
 
 
     useEffect(() => {
@@ -59,6 +60,24 @@ const Visualizador = () => {
     
     }
 
+    const addBrandsToDB = async () => {
+
+        const batch = writeBatch(db)
+           // Define los documentos que deseas agregar
+        //const docData1 = { campo1: 'valor1', campo2: 'valor2' };
+        //const docData2 = { campo1: 'valor3', campo2: 'valor4' };
+        DATA_BRANDS.forEach(item =>{
+            let docRef = doc(db,'brand_data',item.brand)
+            batch.set(docRef,item)
+           //console.log(product)
+        })
+        
+        //const docRef1 = doc(db,'items','id48') // Firestore generará un ID único para este documento
+        //batch.set(docRef1, docData1);
+        batch.commit()
+        
+        }
+
     const addItemsWithSetToDB = async () => {
 
         //Para agregar algo id propio usamos setDoc
@@ -83,7 +102,7 @@ const Visualizador = () => {
 
     return (
         <div>
-            <button onClick={()=>verResultado()}>Mirar</button>
+            <button onClick={()=>addBrandsToDB()}>Mirar</button>
             <span>Hola</span>
             <span>Hola</span>
             <span>Hola</span>
