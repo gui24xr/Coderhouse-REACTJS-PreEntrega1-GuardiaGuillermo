@@ -5,7 +5,6 @@ import ProductPriceViewer from "../ProductPriceViewer/ProductPriceViewer";
 import StockVisor from "../StockVisor/StockVisor";
 import ItemCountSelector from "../ItemCountSelector/ItemCountSelector";
 import { useContext } from "react";
-import { ItemDetailContext } from "../../context/ItemDetailContext";
 import { getStockProduct } from "../../DATA/data_manager";
 import { useStock } from "../../hooks/useStock";
 import { CartContext } from "../../context/CartContext";
@@ -13,11 +12,13 @@ import { CartContext } from "../../context/CartContext";
 const ItemDetail = ({ product }) => {
  
 
-  const {addCartItem} = useContext(CartContext)
+  const {addCartItem, addToSingleBuyCart} = useContext(CartContext)
   const { getProductCategoriesList, getProductStock } = useStock(product)
 
-  const categoriesList = getProductCategoriesList()
-  
+  //console.log('PRODUCTO QUE LLEGA: ', product)
+  //console.log('CAT: ', product.categoriesList/*, product.categoriesList.length*/)
+  const categoriesList =  getProductCategoriesList()
+  //console.log('variable: ', categoriesList)
   //Estados
   const [selectedSize, setSelectedSize] = useState(null)
   const [availableStock, setAvailableStock] = useState(0)
@@ -28,11 +29,15 @@ useEffect(()=>{
   setAvailableStock(getProductStock(selectedSize))
  },)
 
-  const funcionBoton = (cantidadElegida) =>{
+  const funcionBotonAddToCart = (cantidadElegida) =>{
     //console.log('Meter al carro ' + cantidadElegida + ' unidades. ' + ' talla ' + selectedSize)
     availableStock > 0 && addCartItem(product,cantidadElegida,selectedSize)
   }
 
+  function funcionBotonComprarAhora(cantidadElegida){
+    //Ingresa la compra al carro de compra de un solo articulo
+    addToSingleBuyCart(product,1,selectedSize)
+  }
   
 
   return (
@@ -93,17 +98,20 @@ useEffect(()=>{
             {
               //Este componente se va a seleccionar unicamente en caso de que tenga categorias el producto
               categoriesList.length > 1 && <StockVisor productCategoriesList={categoriesList} sizeSelecter={setSelectedSize}/>}
-            <ItemCountSelector availableStock={availableStock} addToCartFunction={funcionBoton}/>
+            <ItemCountSelector availableStock={availableStock} addToCartFunction={funcionBotonAddToCart}/>
        
             <div className="flex flex-col mx-2 mb-4">
               <NavLink
-                to={"/cart"}
+                to={'/checkout/cart'}
                 className="my-4 w-full flex flex-row justify-center  bg-sky-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
               >
                 Ir al carrito
               </NavLink>
 
-              <NavLink className="w-full flex flex-row justify-center bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
+              <NavLink 
+                onClick={()=>funcionBotonComprarAhora()}
+                to={'/checkout/singlebuy'}
+                className="w-full flex flex-row justify-center bg-blue-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
                 Comprar Ahora
               </NavLink>
             </div>

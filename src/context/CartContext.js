@@ -5,21 +5,25 @@ import { quitarCaracterDolar } from "../global/funcions";
 export const CartContext = createContext()
 
 export const CartProvider = ({children}) =>{
+
     const [cart,setCart] = useState([])
-    const [cartLength, setCartLenght] = useState(0)
     const [cartCount, setCartCount] = useState(0)
     const [cartAmount, setCartAmount] = useState(0)
-
+    
+    //Esto es para la compra de un articulo determinado sea uno o varias unidades
+    const [singleBuyCart, setSingleBuyCart] = useState([]) 
+    const [singleBuyAmoutCart,setSingleBuyAmountCart]=useState([])
+    
     useEffect(()=>{
-        console.log('cambio cart')
-        viewCart()
-        setCartCount(countCartItem())
-        setCartAmount(calcularTotalCart())
+        //console.log('cambio cart')
+        //viewCart()
+        setCartCount(countCartItem(cart))
+        setCartAmount(calcularTotalCart(cart))
         //Tengo que contar la cantidad
     },[cart])
 
 
-    const countCartItem = () =>{
+    const countCartItem = (cart) =>{
         //Recuenta la cantidad de unidades que hay en el carrito y setea la cartCount para que se renderice en la notificacion de carrito.
         let cantElementos = 0
         cart.forEach(itemInCart => {
@@ -60,11 +64,29 @@ export const CartProvider = ({children}) =>{
   
 }
 
-    
+    function addToSingleBuyCart(product, quantitySel, size) {
+
+        //Antes que nada voy a setear el carro de compra unica a cero xq aca siemre solo se compra un articulo por separado
+
+        setSingleBuyCart([]) //Borro si es que habia algo
+        const nuevoProducto ={ productID:product.productID,
+            quantity: quantitySel,
+            size:size,
+            productName: product.productName,
+            productPrice: product.productPrice,
+            productImage: product.imageSrc,
+            subTotal: quantitySel * Number(quitarCaracterDolar(product.productPrice))
+        }
+        setSingleBuyCart((prev) => [...prev, nuevoProducto]) //Ingreso el nuevo y unico objeto
+        setSingleBuyAmountCart(quantitySel * Number(quitarCaracterDolar(product.productPrice)))
+    }
 
 
 
-    const calcularTotalCart=()=>{
+
+
+
+    const calcularTotalCart=(cart)=>{
 
         //Calcula el total de lo que hay en el carrito y setea la variable de estado correspondiente.
         if (cart.length>=1){
@@ -84,14 +106,30 @@ export const CartProvider = ({children}) =>{
 
     const getCartAmount = () => cartAmount
     
+    function getSingleBuyCart(){
+        return singleBuyCart
+    }
+
+    function getSingleBuyCartAmount(){
+        return singleBuyAmoutCart
+    }
  
+ 
+    function deleteCart(){
+        setCart([])
+    }
 
-
+    function deleteSingleBuyCart(){
+            setSingleBuyCart([])
+    }
 
     const getCart = () => cart
 
     return(
-        <CartContext.Provider value={{cartCount,getCart,viewCart,addCartItem,getCartAmount}}>
+        <CartContext.Provider value={{cartCount,getCart,viewCart,addCartItem,getCartAmount,
+                                    getSingleBuyCartAmount, getSingleBuyCart, addToSingleBuyCart,
+                                    deleteCart,deleteSingleBuyCart,
+                                }}>
            {children}
         </CartContext.Provider>
     )
